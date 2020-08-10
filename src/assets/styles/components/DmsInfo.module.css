@@ -1,0 +1,18 @@
+@import url("https://fonts.googleapis.com/css2?family=Amiri:wght@700&display=swap");
+
+.DmsInfo {
+  background-color: #23b0ee;
+  margin-top: 20%;
+  height: 315px;
+  width: 72%;
+}
+.HeaderSize {
+  font-size: xx-large;
+  color: antiquewhite;
+}
+.textSize {
+  color: antiquewhite;
+  font-size: x-large;
+  font-family: "Amiri", serif;
+  letter-spacing: 0.9px;
+}

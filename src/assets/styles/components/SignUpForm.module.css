@@ -1,0 +1,48 @@
+.SignUpForm {
+  text-align: center;
+  background-color: white;
+  height: 100vh;
+  width: 40%;
+  border: 1px solid black;
+  border-left: none;
+  box-sizing: border-box;
+}
+.SignUpAlignTextLeft {
+  width: 365px;
+}
+.SignUpWithGmail_btn {
+  margin-right: 4px;
+  height: 40px;
+}
+.SignUpWithFacebook_btn {
+  margin-left: 4px;
+  height: 40px;
+}
+
+.Space_btn {
+  margin-bottom: 10px;
+}
+.input_Size {
+  width: 320px;
+}
+.SignUp_btn {
+  margin-bottom: 10px;
+  width: 340px;
+  height: 40px;
+  background-color: #23b0ee;
+  color: antiquewhite;
+  border-radius: 10px;
+}
+.alignTextRight {
+  text-align: right;
+  width: 505px;
+}
+.alignTextLeft {
+  text-align: left;
+  width: 505px;
+}
+.Form {
+  margin-top: 20%;
+  height: 315px;
+  background: yellow;
+}

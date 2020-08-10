@@ -1,0 +1,40 @@
+.Navbar {
+  text-decoration: none;
+  width: 100%;
+  background-color: blue;
+  border: 1px solid black;
+}
+
+.elementType {
+  background: aquamarine;
+  display: flex;
+  justify-content: flex-end;
+  height: 124px;
+}
+
+.SignUp_btn {
+  color: black;
+  background-color: #ecedec;
+  font-size: 18px;
+  height: 39px;
+  margin-top: 20px;
+  border-radius: 7px;
+  width: 100px;
+}
+.Login_btn {
+  color: black;
+  background-color: #ecedec;
+  border: none;
+  font-size: 18px;
+  height: 39px;
+  margin-top: 20px;
+  border-radius: 7px;
+  width: 100px;
+}
+.DropdownCustomization {
+  height: 39px;
+  background-color: #ecedec;
+  margin-top: 20px;
+  border-radius: 7px;
+  width: 100px;
+}
