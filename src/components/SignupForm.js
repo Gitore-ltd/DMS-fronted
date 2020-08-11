@@ -3,6 +3,10 @@ import classes from "../assets/styles/components/SignUpForm.module.css"
 import ButtonGroup from "react-bootstrap/ButtonGroup"
 import Button from "react-bootstrap/Button"
 import Form from "react-bootstrap/Form"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import { faEye } from "@fortawesome/free-solid-svg-icons"
+import { faEnvelope } from "@fortawesome/free-solid-svg-icons"
+import { faFacebookF } from "@fortawesome/free-brands-svg-icons"
 function SignupForm() {
   return (
     <div className={classes.SignUpForm}>
@@ -11,13 +15,18 @@ function SignupForm() {
         <p className={classes.SignUpAlignTextLeft}>Sign Up</p>
         <ButtonGroup aria-label="Basic example" className={classes.Space_btn}>
           <Button variant="secondary" className={classes.SignUpWithGmail_btn}>
+            <FontAwesomeIcon icon={faEnvelope} className={classes.mailIcon} />
             Sign Up with Gmail
           </Button>
           <Button
             variant="secondary"
             className={classes.SignUpWithFacebook_btn}
           >
-            Sign with Facebook
+            <FontAwesomeIcon
+              icon={faFacebookF}
+              className={classes.facebookIcon}
+            />
+            Sign Up with Facebook
           </Button>
         </ButtonGroup>
         <Form.Group controlId="formBasicEmail" className={classes.Space_btn}>
@@ -33,6 +42,7 @@ function SignupForm() {
             placeholder="Password"
             className={classes.input_Size}
           />
+          <FontAwesomeIcon icon={faEye} />
         </Form.Group>
         <Form.Group controlId="formBasicPassword" className={classes.Space_btn}>
           <Form.Control
