@@ -11,11 +11,6 @@ h2 {
   color: antiquewhite;
 }
 
-p {
-  font-size-adjust: 16px;
-  text-align-last: left;
-  text-align: left;
-}
 .GetStarted_btn {
   border-radius: 35px;
   width: 40%;

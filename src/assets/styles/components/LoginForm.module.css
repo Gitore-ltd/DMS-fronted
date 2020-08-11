@@ -1,3 +1,7 @@
+.Form {
+  margin-top: 20%;
+  height: 315px;
+}
 .LoginForm {
   text-align: center;
   background-color: white;
@@ -9,29 +13,50 @@
 }
 .LoginAlignTextLeft {
   width: 365px;
+  font-size: x-large;
 }
 .LoginWithGmail_btn {
+  background-color: white;
+  border-radius: 6px;
   margin-right: 4px;
   height: 40px;
+  width: 190px;
+}
+.mailIcon {
+  color: red;
+  background-color: white;
+  height: 15px;
+  width: 17px;
+  margin-right: 10px;
 }
 .LoginWithFacebook_btn {
+  background-color: white;
+  border-radius: 6px;
   margin-left: 4px;
   height: 40px;
+  width: 190px;
+}
+.facebookIcon {
+  background-color: #4c6ef5;
+  color: white;
+  height: 15px;
+  width: 17px;
+  margin-right: 10px;
 }
 
 .Space_btn {
   margin-bottom: 10px;
 }
 .input_Size {
-  width: 320px;
+  width: 367px;
 }
 .Login_btn {
   margin-bottom: 10px;
-  width: 340px;
+  width: 367px;
   height: 40px;
   background-color: #23b0ee;
   color: antiquewhite;
-  border-radius: 10px;
+  border-radius: 6px;
 }
 .alignTextRight {
   text-align: right;
@@ -41,8 +66,7 @@
   text-align: left;
   width: 505px;
 }
-.Form {
-  margin-top: 20%;
-  height: 315px;
-  background: yellow;
+.alignTextCenter {
+  margin-left: 162px;
+  width: 346px;
 }
