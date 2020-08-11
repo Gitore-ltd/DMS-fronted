@@ -4,6 +4,7 @@ import Login from "../views/Login"
 import LandingPage from "../views/LandingPage"
 import Signup from "../views/SignUp"
 import ResetPassword from "../views/ResetPassword"
+import UpdateProfile from "../views/UpdateProfile"
 import Home from "../views/Home"
 import ViewOneProduct from "../views/ViewOneProduct"
 import LoanAgreement from "../views/LoanAgreementPage"
@@ -23,6 +24,7 @@ const App = () => (
         <Route path="/Login" exact component={Login} />
         <Route path="/signup" exact component={Signup} />
         <Route path="/resetpassword" exact component={ResetPassword} />
+        <Route path="/updateprofile" exact component={UpdateProfile} />
         <Route path="/home" exact component={Home} />
         <Route path="/viewoneproduct" exact component={ViewOneProduct} />
         <Route path="/loanagreement" exact component={LoanAgreement} />

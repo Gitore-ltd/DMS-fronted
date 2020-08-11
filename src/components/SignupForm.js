@@ -54,7 +54,7 @@ function SignupForm() {
         <Button variant="primary" type="submit" className={classes.SignUp_btn}>
           <strong> Sign Up</strong>
         </Button>
-        <p className={classes.alignTextRight}>have an account?Login</p>
+        <p className={classes.alignTextCenter}>have an account?Login</p>
       </Form>
     </div>
   )

@@ -1,19 +1,22 @@
-.Form {
-  margin-top: 20%;
-  height: 315px;
-}
 .LoginForm {
   text-align: center;
   background-color: white;
   height: 100vh;
-  width: 40%;
+  width: 50%;
   border: 1px solid black;
   border-left: none;
   box-sizing: border-box;
 }
+.Form {
+  margin-top: 20%;
+  height: 315px;
+}
+
 .LoginAlignTextLeft {
-  width: 365px;
   font-size: x-large;
+  text-align: left;
+  width: 393px;
+  margin-left: 222px;
 }
 .LoginWithGmail_btn {
   background-color: white;
@@ -60,13 +63,15 @@
 }
 .alignTextRight {
   text-align: right;
-  width: 505px;
+  width: 393px;
+  margin-left: 222px;
 }
 .alignTextLeft {
   text-align: left;
   width: 505px;
 }
 .alignTextCenter {
-  margin-left: 162px;
-  width: 346px;
+  text-align: center;
+  width: 393px;
+  margin-left: 222px;
 }

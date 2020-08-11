@@ -1,18 +1,25 @@
-.Form {
-  margin-top: 20%;
-  height: 315px;
-}
 .SignUpForm {
   text-align: center;
   background-color: white;
   height: 100vh;
-  width: 40%;
+  width: 50%;
   border: 1px solid black;
   border-left: none;
   box-sizing: border-box;
 }
+.Form {
+  margin-top: 20%;
+  height: 315px;
+}
+
 .SignUpAlignTextLeft {
-  width: 365px;
+  font-size: x-large;
+  text-align: left;
+  width: 393px;
+  margin-left: 222px;
+}
+.Space_btn {
+  margin-bottom: 10px;
 }
 .SignUpWithGmail_btn {
   color: black;
@@ -23,6 +30,13 @@
   height: 40px;
   width: 190px;
 }
+.mailIcon {
+  color: red;
+  background-color: white;
+  height: 15px;
+  width: 17px;
+  margin-right: 10px;
+}
 .SignUpWithFacebook_btn {
   color: black;
   background-color: white;
@@ -32,10 +46,14 @@
   height: 40px;
   width: 190px;
 }
-
-.Space_btn {
-  margin-bottom: 10px;
+.facebookIcon {
+  background-color: #4c6ef5;
+  color: white;
+  height: 15px;
+  width: 17px;
+  margin-right: 10px;
 }
+
 .input_Size {
   width: 367px;
 }
@@ -47,25 +65,9 @@
   color: antiquewhite;
   border-radius: 6px;
 }
-.mailIcon {
-  color: red;
-  background-color: white;
-  height: 15px;
-  width: 17px;
-  margin-right: 10px;
-}
-.facebookIcon {
-  background-color: #4c6ef5;
-  color: white;
-  height: 15px;
-  width: 17px;
-  margin-right: 10px;
-}
+
 .alignTextRight {
-  text-align: right;
-  width: 505px;
-}
-.alignTextLeft {
-  text-align: left;
-  width: 505px;
+  text-align: center;
+  width: 393px;
+  margin-left: 222px;
 }
