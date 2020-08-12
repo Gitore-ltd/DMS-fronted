@@ -1,9 +1,11 @@
 import React from "react"
+import NavBar from "../components/NavigationBar"
+import classes from "../assets/styles/containers/UpdateProfile.module.css"
 
 function UpdateProfile() {
   return (
-    <div>
-      <h1>Update profile PAGE</h1>
+    <div className={classes.UpdateProfileContainer}>
+      <NavBar />
     </div>
   )
 }
