@@ -1,0 +1,77 @@
+.LoginForm {
+  text-align: center;
+  background-color: white;
+  height: 100vh;
+  width: 50%;
+  border: 1px solid black;
+  border-left: none;
+  box-sizing: border-box;
+}
+.Form {
+  margin-top: 20%;
+  height: 315px;
+}
+
+.LoginAlignTextLeft {
+  font-size: x-large;
+  text-align: left;
+  width: 393px;
+  margin-left: 222px;
+}
+.LoginWithGmail_btn {
+  background-color: white;
+  border-radius: 6px;
+  margin-right: 4px;
+  height: 40px;
+  width: 190px;
+}
+.mailIcon {
+  color: red;
+  background-color: white;
+  height: 15px;
+  width: 17px;
+  margin-right: 10px;
+}
+.LoginWithFacebook_btn {
+  background-color: white;
+  border-radius: 6px;
+  margin-left: 4px;
+  height: 40px;
+  width: 190px;
+}
+.facebookIcon {
+  background-color: #4c6ef5;
+  color: white;
+  height: 15px;
+  width: 17px;
+  margin-right: 10px;
+}
+
+.Space_btn {
+  margin-bottom: 10px;
+}
+.input_Size {
+  width: 367px;
+}
+.Login_btn {
+  margin-bottom: 10px;
+  width: 367px;
+  height: 40px;
+  background-color: #23b0ee;
+  color: antiquewhite;
+  border-radius: 6px;
+}
+.alignTextRight {
+  text-align: right;
+  width: 393px;
+  margin-left: 222px;
+}
+.alignTextLeft {
+  text-align: left;
+  width: 505px;
+}
+.alignTextCenter {
+  text-align: center;
+  width: 393px;
+  margin-left: 222px;
+}

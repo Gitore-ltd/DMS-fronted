@@ -1,0 +1,6 @@
+.LandingPage {
+  height: 100vh;
+  display: grid;
+  grid-template-columns: 2fr 2fr;
+  grid-template-rows: 100px 680px;
+}

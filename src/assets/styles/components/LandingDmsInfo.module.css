@@ -1,0 +1,33 @@
+.DMSInfo {
+  background-color: #39a3d1;
+  width: 100%;
+  border: 1px solid black;
+  text-align: center;
+  padding-top: 141px;
+}
+h2 {
+  font-size: xx-large;
+  text-align: center;
+  color: antiquewhite;
+}
+
+.GetStarted_btn {
+  border-radius: 35px;
+  width: 40%;
+  height: 60px;
+  font-size-adjust: 0.7;
+}
+.GetStarted_btn:hover {
+  color: antiquewhite;
+  background-color: #929292;
+}
+.text_Adjust {
+  font-size-adjust: 1;
+  color: antiquewhite;
+}
+.elementType {
+  color: #929292;
+  background-color: #ffffff;
+  border-radius: 35px;
+  font-size-adjust: 0.7;
+}
