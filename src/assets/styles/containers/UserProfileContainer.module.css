@@ -1,0 +1,8 @@
+.UserProfileContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 687px;
+  background-color: #f4f6f8;
+}
