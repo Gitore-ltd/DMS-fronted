@@ -1,17 +1,20 @@
 import React from "react"
+import Logo from "../components/Logo"
 import Navbar from "react-bootstrap/Navbar"
 import ButtonGroup from "react-bootstrap/ButtonGroup"
 import Button from "react-bootstrap/Button"
 import Dropdown from "react-bootstrap/Dropdown"
-import classes from "../assets/styles/components/NavigationBar.module.css"
+
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faBell } from "@fortawesome/free-solid-svg-icons"
 import { faUserCircle } from "@fortawesome/free-solid-svg-icons"
 import { faSortDown } from "@fortawesome/free-solid-svg-icons"
+import classes from "../assets/styles/components/NavigationBar.module.css"
 
 function NavigationBar() {
   return (
     <div className={classes.navBarContainer}>
+      <Logo />
       <Navbar bg="light" className={classes.Navbar}>
         <ButtonGroup className={classes.ButtonGroup}>
           <Button className={classes.Button}>Home</Button>

@@ -1,5 +1,31 @@
-.Container {
-  width: 37%;
-  height: 620px;
-  background-color: coral;
+.userName {
+  color: #848484;
+  text-align: center;
+  font-weight: bold;
+}
+.userRole {
+  text-align: center;
+  font-size: small;
+  color: #848484;
+}
+.uploadButton {
+  height: 40px;
+  width: 190px;
+  background-color: #39a3d1;
+  color: white;
+  font-weight: bold;
+  border-radius: 4px;
+  margin-bottom: 10px;
+}
+.removeButton {
+  height: 40px;
+  width: 190px;
+  background-color: white;
+  color: #848484;
+  font-weight: bold;
+  border: 1px solid #848484;
+  border-radius: 4px;
+}
+.buttonContainer {
+  display: grid;
 }

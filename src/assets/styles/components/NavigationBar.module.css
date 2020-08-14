@@ -2,12 +2,12 @@
   display: flex;
   justify-content: flex-end;
   color: black;
-  background-color: brown;
+  background-color: #23b0ee;
   width: 100%;
   height: 100px;
 }
 .Navbar {
-  width: 65%;
+  width: 80%;
   background: #39a3d1;
   display: flex;
   justify-content: flex-start;
