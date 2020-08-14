@@ -1,15 +1,12 @@
 import React from "react";
-import Img from "../assets/images/avatar.png";
 
 const ProductBox = ({ product }) => {
-  const { image, title, price } = product;
-  console.log(image);
   return (
     <div className="product cl-md-3">
-      <img src={image} alt="" />
+      <img src={product.productImage} alt="" />
       <div>
-        <h5>{title}</h5>
-        <p>{price}</p>
+        <h5>{product.title}</h5>
+        <p>{product.price}</p>
       </div>
     </div>
   );

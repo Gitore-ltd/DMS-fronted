@@ -2,10 +2,13 @@ import { createStore, applyMiddleware, compose, combineReducers } from "redux";
 import ReduxThunk from "redux-thunk";
 import reduxImmutableStateInvariant from "redux-immutable-state-invariant";
 import { initialState } from "./intialState";
-import userReducer from '../store/reducers/userReducer';
+import user from '../store/reducers/userReducer';
+import products from '../store/reducers/productReducer';
 
 const rootReducer = combineReducers({
-    userReducer
+    user,
+    products,
+    token: user
 });
 
 export default function configureStore() {

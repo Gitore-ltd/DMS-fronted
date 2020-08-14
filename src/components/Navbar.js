@@ -5,7 +5,6 @@ import Logo from "../assets/images/mainlogo.png";
 import UserAvatar from "../assets/images/avatar.png";
 import DropDown from "../components/DropDown";
 import "../assets/styles/components/Navbar.css";
-import { Dropdown as DropDownMenu } from 'semantic-ui-react';
 
 const Navbar = (props) => {
   const token = "A";
