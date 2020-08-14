@@ -1,0 +1,88 @@
+.add-product {
+  display: flex;
+  width: 80%;
+  height: 60vh;
+  margin: 70px auto;
+}
+
+.add-product-image {
+  flex: 2;
+  margin: auto;
+}
+
+.image-box {
+  border: 2px solid #ccc;
+  padding: 0 10px;
+  text-align: center;
+  width: 60%;
+  height: 70%;
+  margin: auto;
+}
+
+.image-box img {
+  width: 80%;
+  margin: auto;
+  margin-bottom: 0;
+  margin-top: 40px;
+}
+
+.add-product-details {
+  flex: 3;
+}
+
+.add-product-details h4 {
+  font-weight: 700;
+  font-size: 22px;
+}
+
+.add-product-details label {
+  font-weight: 500;
+}
+
+.form-group {
+  margin: 20px;
+}
+
+.form-group label {
+  text-transform: uppercase;
+  font-size: 13px;
+}
+
+.txt-input {
+  box-sizing: border-box;
+  height: 20px;
+}
+.btn-group {
+  justify-content: space-between;
+}
+
+.btn {
+  margin: 5px;
+  border-radius: 5px !important;
+}
+
+.qty {
+  justify-content: space-between;
+}
+
+#files {
+  visibility: hidden;
+}
+
+.btn-upload {
+  border: 1px solid #ccc;
+  padding: 2px 5px;
+  font-size: 12px;
+  font-weight: 500;
+  background-color: #eee;
+  text-transform: uppercase;
+  float: right;
+  transform: translateY(100%);
+  border-radius: 4px;
+}
+
+.btn-upload:hover {
+  background-color: grey;
+  cursor: pointer;
+  color: #ccc;
+}

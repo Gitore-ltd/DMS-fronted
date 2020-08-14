@@ -1,33 +1,30 @@
-import React, { useState } from "react"
-import Bell from "./Bell"
-import { Link } from "react-router-dom"
-import Logo from "../assets/images/mainlogo.png"
-import UserAvatar from "../assets/images/avatar.png"
-import DropDown from "../components/DropDown"
-import "../assets/styles/components/Navbar.css"
+import React, { useState } from "react";
+import Bell from "./Bell";
+import { Link } from "react-router-dom";
+import Logo from "../assets/images/mainlogo.png";
+import UserAvatar from "../assets/images/avatar.png";
+import DropDown from "../components/DropDown";
+import "../assets/styles/components/Navbar.css";
+import { Dropdown as DropDownMenu } from 'semantic-ui-react';
 
 const Navbar = (props) => {
-  const token = "A"
-  const [toggleMenu, setToggleMenu] = useState(false)
+  const token = "A";
+  const [toggleMenu, setToggleMenu] = useState(false);
   const showMenu = () => {
-    setToggleMenu(!toggleMenu)
-  }
-  const classes = ["drop-down"]
+    setToggleMenu(!toggleMenu);
+  };
+  const classes = ["drop-down"];
   if (toggleMenu) {
-    classes.push("show")
+    classes.push("show");
   }
   return (
     <>
       <div className="navbar">
-       <div className="navbarLeft">
-       <div className="logo">
+        <div className="logo">
           <Link to="/">
             <img src={Logo} alt="DMS" />
           </Link>
         </div>
-       </div>
-        <div className='navbarRight'>
-        <div className='navbarRightContent'>
         <div className="menu">
           {token !== null ? (
             <>
@@ -35,6 +32,7 @@ const Navbar = (props) => {
                 <Link to="/home">Home</Link>
                 <Link to="/loans">Loans</Link>
                 <Link to="/viewrequest">Reports</Link>
+                <Link to="/addproduct">Add product</Link>
               </div>
               <Bell />
             </>
@@ -50,16 +48,14 @@ const Navbar = (props) => {
           )}
         </div>
         <div id="top-menu-avatar" onClick={showMenu}>
-          <div className="user-name">Marlene</div>
+          <div className="user-name">Kagorora Maxime</div>
           <img className="user-avatar" src={UserAvatar} alt="" />
           <i className="fa fa-caret-down" aria-hidden="true"></i>
           <DropDown classes={classes} />
         </div>
-        </div>
-        </div>
       </div>
     </>
-  )
-}
+  );
+};
 
-export default Navbar
+export default Navbar;
