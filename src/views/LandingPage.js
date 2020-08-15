@@ -1,30 +1,34 @@
-import React from "react"
-import { Button } from 'react-bootstrap';
-import classes from "../assets/styles/containers/LandingPage.module.css"
+import React from 'react';
+import { Link } from 'react-router-dom';
+import '../assets/styles/containers/LandingPage.css';
 import NavAuth from '../components/NavAuth';
 
-function LandingPage() {
-  return (
-    <div className={classes.LandingPage}>
-      <NavAuth />
-      <div className={classes.circle}></div>
-      <div className={classes.circle2}></div>
-      <div className={classes.Container}>
-      <div className={classes.contentContainer}>
-        <h1>DEBT MANAGMENT SYSTEM</h1>
+const LandingPage = () => {
+  return(
+    <div className="landingPageContainer">
+            <NavAuth />
+        <div className="landingPageLeft">
+          <div className="landingPageLeftCircle" />
+          <div className="landingPageLeftContent">
+          <h1>DEBT MANAGMENT SYSTEM</h1>
         <p>This system allows Customers to request loans <br />on online and eases the process of payment
  of <br />those loans.</p>
-        <Button>GET STARTED</Button>
-      </div>
-        <div className={classes.imageContainer}> 
-       <img
-            className={classes.landingPageImage}
+       <Link to="/signup">
+        <button className="getStartedBtn">GET STARTED</button>
+       </Link>
+          </div>
+        </div>
+        <div className="landingPageRight">
+          <div className="landingPageRightCircle" />
+          <div className="landingPageRightContent">
+          <img
+            className="landingPageImage"
             src={require('../assets/images/engineer.png')}
           /> 
-         </div> 
-        </div> 
+          </div>
+        </div>
     </div>
   )
 }
 
-export default LandingPage
+export default LandingPage;
