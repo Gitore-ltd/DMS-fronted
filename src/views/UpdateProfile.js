@@ -1,5 +1,5 @@
 import React from "react"
-import NavBar from "../components/NavigationBar"
+import NavBar from "../components/Navbar"
 import UserProfile from "../containers/UserProfileContainer"
 import classes from "../assets/styles/containers/UpdateProfile.module.css"
 
