@@ -6,7 +6,7 @@ import Signup from "../views/SignUp"
 import ResetPassword from "../views/ResetPassword"
 import UpdateProfile from "../views/UpdateProfile"
 import Home from "../views/Home"
-import ViewOneProduct from "../views/ViewOneProduct"
+import loanrequest from "../views/LoanRequest"
 import LoanAgreement from "../views/LoanAgreementPage"
 import Loans from "../views/Loans"
 import Pay from "../views/Pay"
@@ -26,7 +26,7 @@ const App = () => (
         <Route path="/resetpassword" exact component={ResetPassword} />
         <Route path="/updateprofile" exact component={UpdateProfile} />
         <Route path="/home" exact component={Home} />
-        <Route path="/viewoneproduct" exact component={ViewOneProduct} />
+        <Route path="/loanrequest" exact component={loanrequest} />
         <Route path="/loanagreement" exact component={LoanAgreement} />
         <Route path="/loans" exact component={Loans} />
         <Route path="/pay" exact component={Pay} />
@@ -34,7 +34,6 @@ const App = () => (
         <Route path="/addproduct" exact component={AddProduct} />
         <Route path="/viewrequest" exact component={ViewRequest} />
         <Route path="/openrequest" exact component={OpenRequest} />
-        <Route path="/viewoneproduct" exact component={ViewOneProduct} />
       </Switch>
     </BrowserRouter>
   </div>
