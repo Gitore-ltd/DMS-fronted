@@ -26,8 +26,6 @@ function UserProfileForm() {
             <Form.Label className={classes.TextLabelColor}>
               FirstName
             </Form.Label>
-          </Form.Group>
-          <Form.Group as={Col} controlId="formGridPassword">
             <Form.Control type="text" className={classes.InputField} />
           </Form.Group>
         </Form.Row>
@@ -38,8 +36,6 @@ function UserProfileForm() {
             className={classes.SpaceBtwLabels}
           >
             <Form.Label className={classes.TextLabelColor}>LastName</Form.Label>
-          </Form.Group>
-          <Form.Group as={Col} controlId="formGridPassword">
             <Form.Control type="text" className={classes.InputField} />
           </Form.Group>
         </Form.Row>
@@ -50,8 +46,6 @@ function UserProfileForm() {
             className={classes.SpaceBtwLabels}
           >
             <Form.Label className={classes.TextLabelColor}>Gender</Form.Label>
-          </Form.Group>
-          <Form.Group as={Col} controlId="formGridPassword">
             <Form.Control type="text" className={classes.InputField} />
           </Form.Group>
         </Form.Row>
@@ -64,8 +58,6 @@ function UserProfileForm() {
             <Form.Label className={classes.TextLabelColor}>
               National ID
             </Form.Label>
-          </Form.Group>
-          <Form.Group as={Col} controlId="formGridPassword">
             <Form.Control type="text" className={classes.InputField} />
           </Form.Group>
         </Form.Row>
@@ -76,8 +68,6 @@ function UserProfileForm() {
             className={classes.SpaceBtwLabels}
           >
             <Form.Label className={classes.TextLabelColor}>Email</Form.Label>
-          </Form.Group>
-          <Form.Group as={Col} controlId="formGridPassword">
             <Form.Control type="text" className={classes.InputField} />
           </Form.Group>
         </Form.Row>
@@ -88,8 +78,6 @@ function UserProfileForm() {
             className={classes.SpaceBtwLabels}
           >
             <Form.Label className={classes.TextLabelColor}>Tel</Form.Label>
-          </Form.Group>
-          <Form.Group as={Col} controlId="formGridPassword">
             <Form.Control type="text" className={classes.InputField} />
           </Form.Group>
         </Form.Row>
@@ -103,8 +91,6 @@ function UserProfileForm() {
             className={classes.SpaceBtwLabels}
           >
             <Form.Label className={classes.TextLabelColor}>Address</Form.Label>
-          </Form.Group>
-          <Form.Group as={Col} controlId="formGridPassword">
             <Form.Control type="text" className={classes.InputField} />
           </Form.Group>
         </Form.Row>

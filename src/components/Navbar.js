@@ -1,7 +1,7 @@
 import React, { useState } from "react"
 import Bell from "./Bell"
 import { Link } from "react-router-dom"
-import Logo from "../assets/images/logo.png"
+import Logo from "../assets/images/mainlogo.png"
 import UserAvatar from "../assets/images/avatar.png"
 import DropDown from "../components/DropDown"
 import "../assets/styles/components/Navbar.css"
@@ -19,18 +19,22 @@ const Navbar = (props) => {
   return (
     <>
       <div className="navbar">
-        <div className="logo">
+       <div className="navbarLeft">
+       <div className="logo">
           <Link to="/">
             <img src={Logo} alt="DMS" />
           </Link>
         </div>
+       </div>
+        <div className='navbarRight'>
+        <div className='navbarRightContent'>
         <div className="menu">
           {token !== null ? (
             <>
               <div>
                 <Link to="/home">Home</Link>
-                <Link to="/addproduct">Add product</Link>
-                <Link to="/request">Request</Link>
+                <Link to="/loans">Loans</Link>
+                <Link to="/viewrequest">Reports</Link>
               </div>
               <Bell />
             </>
@@ -46,10 +50,12 @@ const Navbar = (props) => {
           )}
         </div>
         <div id="top-menu-avatar" onClick={showMenu}>
-          <div className="user-name">Kagorora Maxime</div>
+          <div className="user-name">Marlene</div>
           <img className="user-avatar" src={UserAvatar} alt="" />
           <i className="fa fa-caret-down" aria-hidden="true"></i>
           <DropDown classes={classes} />
+        </div>
+        </div>
         </div>
       </div>
     </>
