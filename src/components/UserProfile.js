@@ -9,17 +9,17 @@ function UserProfile() {
     <div>
       <p
         style={{
-          width: "40px",
-          height: "37px",
-          padding: "22px",
+          width: "68px",
+          height: "62px",
+          padding: "20px",
           backgroundColor: "white",
           border: "1px solid #848484",
           borderRadius: "50%",
           marginBottom: "10px",
-          marginLeft: "40px",
+          marginLeft: "55px",
         }}
       >
-        <FontAwesomeIcon icon={faUser} size="3x" style={{}} />
+        <FontAwesomeIcon icon={faUser} size="2x" />
       </p>
 
       <p className={classes.userName}>Umuhoza Marlene</p>

@@ -8,11 +8,14 @@
   margin-bottom: 10px;
 }
 .TextLabelColor {
+  text-align: center;
+  width: 150px;
   color: #848484;
 }
 .SpaceBtwLabels {
+  display: flex;
   width: 130px;
-  text-align: right;
+  text-align: left;
 }
 .InputField {
   width: 287px;
@@ -21,7 +24,7 @@
 .ButtonContainer {
   text-align: left;
   width: 44%;
-  margin-left: 71px;
+  margin-left: 60px;
 }
 .UpdateButton {
   height: 40px;
