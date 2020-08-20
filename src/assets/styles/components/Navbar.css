@@ -1,0 +1,135 @@
+.navbar {
+  display: flex;
+  min-height: 30px;
+  background-color: #39a3d1;
+  padding: 0;
+  box-shadow: 0 5px 10px -10px;
+  color: #0d9bc6;
+  position: sticky;
+  top: 0;
+  z-index: 200;
+  height: 100px;
+}
+
+.logo {
+  flex: 4;
+  height: 100%;
+  background-color: #23b0ee;
+  border-top-right-radius: 30px;
+  border-bottom-right-radius: 30px;
+  text-align: center;
+}
+
+.logo img {
+  transform: translate(-90%, 20%);
+}
+
+.menu {
+  display: flex;
+  flex: 7;
+  height: 100%;
+  padding: 15px;
+  justify-content: end;
+}
+
+.menu a {
+  text-decoration: none;
+  margin: 30px;
+  color: white;
+}
+
+.menu a:hover {
+  border-bottom: 2px solid white;
+}
+
+.btn-notification {
+  color: white;
+  font-size: 23px;
+  box-sizing: border-box;
+  margin-left: 50px;
+  cursor: pointer;
+}
+
+.unread-notification {
+  border-radius: 50%;
+  background-color: #c51c31;
+  padding: 3px;
+  font-size: 12px;
+  font-weight: 700;
+  margin-left: -10px;
+}
+
+.user-avatar {
+  border-radius: 50%;
+  width: 45px;
+  height: 45px;
+  margin: 0;
+}
+
+#top-menu-avatar {
+  flex: 3;
+  margin: 0;
+  height: 100%;
+}
+
+#top-menu-avatar img {
+  object-fit: cover;
+}
+
+.user-name {
+  text-transform: capitalize;
+  display: inline-block;
+  margin: 17px 10px;
+  margin-left: 10px;
+  color: white;
+  cursor: pointer;
+}
+
+.drop-down {
+  position: fixed;
+  z-index: 100;
+  display: none;
+  width: 12rem;
+  box-shadow: 0px 0px 7px -5px rgb(126, 125, 125);
+  align-content: center;
+  transition: 0.5s;
+  background: white;
+}
+
+.show {
+  display: block;
+}
+
+.drop-down > a {
+  height: 40px;
+  width: 13rem;
+  color: #000000;
+  text-decoration: none;
+}
+
+.drop-down > a:hover {
+  color: #0d9bc6;
+  text-decoration: none;
+}
+
+.drop-down i {
+  margin-top: -20px;
+  padding: 10px;
+}
+
+.fa-caret-down {
+  font-size: 30px;
+  color: black;
+  height: 100%;
+  margin: auto;
+  transform: translate(20%, 10%);
+  cursor: pointer;
+}
+
+.sign-out-drop-down {
+  display: grid;
+  grid-template-columns: 20% 80%;
+  align-items: center;
+  box-shadow: 0px 0px 7px -5px rgb(126, 125, 125);
+  padding: 10px;
+}

@@ -1,0 +1,45 @@
+.Container {
+  width: 57%;
+  height: 620px;
+  background-color: #ffffff;
+}
+.DisplayHorizontally {
+  display: flex;
+  margin-bottom: 10px;
+}
+.TextLabelColor {
+  text-align: center;
+  width: 150px;
+  color: #848484;
+}
+.SpaceBtwLabels {
+  display: flex;
+  width: 130px;
+  text-align: left;
+}
+.InputField {
+  width: 287px;
+  margin-left: 50px;
+}
+.ButtonContainer {
+  text-align: left;
+  width: 44%;
+  margin-left: 60px;
+}
+.UpdateButton {
+  height: 40px;
+  width: 190px;
+  margin-right: 40px;
+  background-color: #39a3d1;
+  color: white;
+  font-weight: bold;
+  border-radius: 4px;
+}
+.CancelButton {
+  height: 40px;
+  width: 190px;
+  background-color: #707070;
+  color: white;
+  font-weight: bold;
+  border-radius: 4px;
+}
