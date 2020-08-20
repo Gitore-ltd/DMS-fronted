@@ -1,0 +1,8 @@
+.cement_Container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50%;
+  height: 687px;
+  background-color: #f4f6f8;
+}

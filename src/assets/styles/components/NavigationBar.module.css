@@ -1,0 +1,47 @@
+.navBarContainer {
+  display: flex;
+  justify-content: flex-end;
+  color: black;
+  background-color: #23b0ee;
+  width: 100%;
+  height: 100px;
+}
+.Navbar {
+  width: 80%;
+  background: #39a3d1;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  height: 100px;
+}
+.ButtonGroup {
+  display: flex;
+  justify-content: flex-end;
+
+  width: 94%;
+  height: 70px;
+}
+.Button {
+  background: #39a3d1;
+  color: white;
+  border: none;
+  width: 130px;
+  font-size: larger;
+}
+.UserName {
+  text-align: right;
+  font-size: larger;
+  width: 100px;
+}
+.Dropdown {
+  width: 100px;
+  margin-top: 20px;
+}
+.DropdownToggle {
+  background: none;
+  color: #efd917;
+  border: none;
+  font-size: larger;
+  width: 100px;
+  text-align: right;
+}

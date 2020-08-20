@@ -1,0 +1,32 @@
+.loanRContainer {
+  width: 50%;
+  height: 687px;
+  background-color: #f4f6f8;
+  padding-top: 80px;
+}
+.Button {
+  font-size: larger;
+  color: white;
+  background-color: #39a3d1;
+  border: 1px solid #39a3d1;
+  width: 60%;
+  height: 40px;
+}
+.textColor {
+  color: #343a40;
+}
+.plusIcon {
+  color: #39a3d1;
+}
+.minusIcon {
+  color: #39a3d1;
+}
+.border {
+  border: 2px solid #f4f6f8;
+  background-color: white;
+  margin-right: 6px;
+  padding: 2px;
+}
+.spaceBwtn {
+  margin-left: 5px;
+}
