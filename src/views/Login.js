@@ -1,29 +1,36 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import '../assets/styles/containers/loginPage.css';
-import { Form, Spinner } from 'react-bootstrap';
-import logo from '../assets/images/logo.png';
 import LineDivider from '../components/lineDivider.js';
 import { FcGoogle } from 'react-icons/fc';
 import { FaFacebookF } from 'react-icons/fa';
+import { connect } from 'react-redux';
+import LeftSide from '../components/registrationLeftSide';
+import {userSignin } from '../store/actions/userAction';
 
-const Login = () => {
+const Login = props => {
+
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [message, setMessage] = useState('');
+
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    const user = {
+      email, password
+    };
+    const userData = await props.userSignin(user);
+    if(userData){
+      props.history.push('/home')
+    }
+  }
+
     return(
       <div className="loginContainer">
-                {/* <Form> */}
-        <div className="loginLeft">
-          <div className="loginCircle"/>
-          <div className="loginLeftContent">
-          <Link to="/">
-          <img  src={logo} />
-          </Link>
-          <h2>DEBT MANAGMENT SYSTEM</h2>
-          <p>This system allows clients to request loans <br /> online and eases the
-          process of payment<br /> of those loans.</p>
-          </div>
-        </div>
+        <LeftSide/>
         <div className="loginRight">
           <div className="loginRightContent">
+          <form onSubmit={handleSubmit}>
             <h1>Login</h1>
             <div className="loginSocials">
               <span className="loginGmail"><FcGoogle className="GmailIcon"/>Login with Gmail</span>
@@ -31,13 +38,16 @@ const Login = () => {
             </div>
             <LineDivider />
             <div className="loginInputs">
-              <input className="loginEmailInput" placeholder="Email"></input>
-              <input className="loginEmailInput" type="password" placeholder="Password"></input>
+              <input className="loginEmailInput" placeholder="Email" onChange={e => setEmail(e.target.value)}></input>
+              <input className="loginEmailInput" type="password" placeholder="Password" onChange={e => setPassword(e.target.value)}></input>
             </div>
-            <button className="loginPagebtn">Login</button>
+            <button className="loginPagebtn" type='submit'>Login</button>
+            </form>
             <p className="loginToLoginLink">Don't have an account?
             <Link to="/signup">
-             <a>Sign Up</a>
+             {/* <a> */}
+               Sign Up
+               {/* </a> */}
              </Link>
              </p>
           </div>
@@ -47,4 +57,11 @@ const Login = () => {
     )
 }
 
-export default Login;
+const mapStateToProps = state => (
+  {
+    user: state.userReducer.user,
+    token: state.userReducer.token
+  }
+);
+
+export default connect(mapStateToProps, { userSignin })(Login);

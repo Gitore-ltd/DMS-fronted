@@ -24,6 +24,7 @@ const LandingPage = () => {
           <img
             className="landingPageImage"
             src={require('../assets/images/engineer.png')}
+            alt="engineer pic"
           /> 
           </div>
         </div>

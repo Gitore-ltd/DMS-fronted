@@ -1,51 +1,75 @@
-import React from 'react';
+import React, { useState } from 'react';
 import '../assets/styles/containers/signupPage.css';
 import { Link } from 'react-router-dom';
-import { Form, Spinner } from 'react-bootstrap';
-import logo from '../assets/images/logo.png';
 import LineDivider from '../components/lineDivider.js';
 import { FcGoogle } from 'react-icons/fc';
 import { FaFacebookF } from 'react-icons/fa';
+import { Alert } from 'react-bootstrap';
+import LeftSide from '../components/registrationLeftSide';
+import { connect } from 'react-redux';
+import { userSignup } from '../store/actions/userAction';
 
-const SignUp = () => {
-    return(
-      <div className="signupContainer">
-                {/* <Form> */}
-        <div className="signupLeft">
-          <div className="signupCircle"/>
-          <div className="signupLeftContent">
-          <Link to="/">
-          <img  src={logo} />
-          </Link>
-          <h2>DEBT MANAGMENT SYSTEM</h2>
-          <p>This system allows clients to request loans <br /> online and eases the
-          process of payment<br /> of those loans.</p>
-          </div>
-        </div>
-        <div className="signupRight">
-          <div className="signupRightContent">
+const SignUp = props => {
+
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [confirmPassword, setconfirmPassword] = useState('');
+  const [show, setShow] = useState(false);
+  const [message, setMessage] = useState('');
+
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    const user = {
+      email, password, confirmPassword
+    };
+
+    const userData = await props.userSignup(user);
+    if (userData) {
+      props.history.push('/home')
+    }
+  }
+
+
+  return (
+    <div className="signupContainer">
+      <LeftSide />
+      <div className="signupRight">
+        <div className="signupRightContent">
+          <form onSubmit={handleSubmit}>
             <h1>Sign Up</h1>
+            <Alert key={1} variant="success" show={show}>{message}</Alert>
             <div className="signupSocials">
-              <span className="signupGmail"><FcGoogle className="GmailIcon"/>Sign Up with Gmail</span>
-              <span className="signupFacebook"><FaFacebookF className="facebookIcon"/>Sign Up with Gmail</span>
+              <span className="signupGmail"><FcGoogle className="GmailIcon" />Sign Up with Gmail</span>
+              <span className="signupFacebook"><FaFacebookF className="facebookIcon" />Sign Up with Gmail</span>
             </div>
             <LineDivider />
             <div className="signupInputs">
-              <input className="signupEmailInput" placeholder="Email"></input>
-              <input className="signupEmailInput" type="password" placeholder="Password"></input>
-              <input className="signupEmailInput"type="password" placeholder="Confirm password"></input>
+              <input className="signupEmailInput" placeholder='email' onChange={e => setEmail(e.target.value)} name="email"></input>
+              <input className="signupPasswordInput" type="password" placeholder="Password" onChange={e => setPassword(e.target.value)} name="password"></input>
+              <input className="signupConfirmPasswordInput" type="password" placeholder="Confirm password" onChange={e => setconfirmPassword(e.target.value)}></input>
             </div>
-            <button className="signupPagebtn">Sign Up</button>
-            <p className="signupToLoginLink">have an account? 
+            <button className="signupPagebtn" type='submit'
+            // onClick={onShowAlert}
+            >Sign Up</button>
+          </form>
+          <p className="signupToLoginLink">have an account?
             <Link to="/login">
-            <a>Login</a>
+              {/* <a> */}
+              Login
+            {/* </a> */}
             </Link>
-            </p>
-          </div>
+          </p>
         </div>
-        {/* </Form> */}
       </div>
-    )
+    </div>
+  );
 }
 
-export default SignUp;
+const mapStateToProps = state => (
+  {
+    user: state.userReducer.user,
+    token: state.userReducer.token
+  }
+);
+
+export default connect(mapStateToProps, { userSignup })(SignUp);
