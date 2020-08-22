@@ -56,12 +56,12 @@
 .landingSignupbtn{
   background-color: #ffffff;
   border: #ffffff;
-  width: 6rem;
+  width: 7rem;
   border-radius: 50px;
   box-shadow: 2px 4px 10px rgba(62, 61, 61, 0.1);
   /* margin-left: 25rem; */
   text-align: center;
-  height: 2.2rem;
+  height: 3rem;
   line-height: 3rem;
   margin-top: 13px;
   display: flex;
