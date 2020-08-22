@@ -21,6 +21,7 @@ const Login = props => {
     };
     const userData = await props.userSignin(user);
     if(userData){
+      localStorage.setItem('user-token', userData.jwtoken);
       props.history.push('/home')
     }
   }
