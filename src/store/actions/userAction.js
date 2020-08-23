@@ -88,3 +88,25 @@ export const userProfile = authPayload => async dispatch => {
 //         toast.error(user.error);
 //     }
 // }
+
+export const viewMyRequests = authPayload => async dispatch => {
+    const userToken = localStorage.getItem('user-token');
+    const res = await fetch(`https://debt-management-system.herokuapp.com/api/v1/myRequets`, {
+        method: "GET",
+        headers: {
+            "content-type": "application/json",
+            token: userToken
+        },
+        body: JSON.stringify(authPayload)
+    });
+    const requestsData = await res.json();
+    if (requestsData.status === 200) {
+        dispatch({
+            type: types.MY_REQUESTS,
+            payload: requestsData.data
+        });
+        return requestsData;
+    } else {
+        toast.error(requestsData.error);
+    }
+}

@@ -1,11 +1,75 @@
-import React from "react"
+import React, { useState, useEffect } from 'react';
+import { connect } from 'react-redux';
+// import ButtonGroup from "react-bootstrap/ButtonGroup";
+import Table from "react-bootstrap/Table";
+import '../assets/styles/containers/myLoans.css';
+import NavBar from '../components/Navbar';
+import { viewMyRequests } from '../store/actions/userAction';
 
-function Loans() {
+const Loans = props => {
+
+  const [requests, setRequests] = useState([]);
+
+
+  useEffect(() => {
+    async function fetchAllRequests() {
+      const userToken = localStorage.getItem('user-token');
+      const res = await fetch(`https://debt-management-system.herokuapp.com/api/v1/myRequets`, {
+        method: "GET",
+        headers: {
+          "content-type": "application/json",
+          token: userToken
+        },
+      });
+      const Allrequests = await res.json();
+      setRequests(Allrequests.allRequest);
+      console.log(requests);
+    }
+    fetchAllRequests();
+  });
+
+
   return (
-    <div>
-      <h1>Loans PAGE</h1>
+    <div className="myLoansContainer">
+      <NavBar />
+      <div className="myLoansContainerSide">
+        <div className="contentContainer">
+
+          <Table striped bordered hover className="usersTable">
+            <thead>
+              <tr>
+                <th>Product</th>
+                <th>Quantity</th>
+                <th>Payment Date</th>
+                <th>Loan Amount</th>
+                <th>Status</th>
+              </tr>
+            </thead>
+            <tbody>
+              {requests
+              
+             ? requests.map((request, id) => (
+                <tr key={id}>
+                  <td>{request.productTitle}</td>
+                  <td>{request.quantity}</td>
+                  <td>{request.tobePayed}</td>
+                  <td>{request.total}</td>
+                  <td>{request.requestStatus}</td>
+                </tr>
+              ))
+              : null}
+            </tbody>
+          </Table>
+        </div>
+      </div>
     </div>
   )
 }
 
-export default Loans
+const mapStateToProps = state => (
+  {
+    user: state.userReducer.user,
+  }
+);
+
+export default connect(mapStateToProps, { viewMyRequests })(Loans);
