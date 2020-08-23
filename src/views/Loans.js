@@ -68,7 +68,7 @@ const Loans = props => {
 
 const mapStateToProps = state => (
   {
-    user: state.userReducer.user,
+    user: state.user.user,
   }
 );
 

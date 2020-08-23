@@ -67,28 +67,6 @@ export const userProfile = authPayload => async dispatch => {
     }
 }
 
-// export const getUserProfile = authPayload => async dispatch => {
-//     const userToken = localStorage.getItem('user-token');
-//     const res = await fetch(`https://debt-management-system.herokuapp.com/api/v1/getProfile`, {
-//         method: "GET",
-//         headers: {
-//             "content-type": "application/json",
-//             token: userToken
-//         },
-//         body: JSON.stringify(authPayload)
-//     });
-//     const user = await res.json();
-//     if (user.status === 200) {
-//         dispatch({
-//             type: types.GET_PROFILE,
-//             payload: user.data
-//         });
-//         return user;
-//     } else {
-//         toast.error(user.error);
-//     }
-// }
-
 export const viewMyRequests = authPayload => async dispatch => {
     const userToken = localStorage.getItem('user-token');
     const res = await fetch(`https://debt-management-system.herokuapp.com/api/v1/myRequets`, {
@@ -110,3 +88,4 @@ export const viewMyRequests = authPayload => async dispatch => {
         toast.error(requestsData.error);
     }
 }
+
