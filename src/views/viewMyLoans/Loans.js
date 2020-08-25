@@ -1,10 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
-// import ButtonGroup from "react-bootstrap/ButtonGroup";
 import Table from "react-bootstrap/Table";
-import '../assets/styles/containers/myLoans.css';
-import NavBar from '../components/Navbar';
-import { viewMyRequests } from '../store/actions/userAction';
+import './myLoans.css';
+import NavBar from '../../components/Navbar';
+import { viewMyRequests } from '../../store/actions/userAction';
 
 const Loans = props => {
 

@@ -1,7 +1,7 @@
 import React from 'react';
 import logo from '../assets/images/logo.png';
 import { Link } from 'react-router-dom';
-import '../assets/styles/containers/signupPage.css';
+import '../views/signUp/signupPage.css';
 
 const RegLeftSide = () => {
     return(

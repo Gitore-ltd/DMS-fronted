@@ -1,9 +1,9 @@
 import React, { useState } from "react";
-import Navbar from "../components/Navbar";
-import "../assets/styles/containers/AddProduct.css";
-import NoImg from "../assets/images/no-image.png";
+import Navbar from "../../components/Navbar";
+import "./AddProduct.css";
+import NoImg from "../../assets/images/no-image.png";
 import { connect } from "react-redux";
-import { addProduct } from "../store/actions/productActions";
+import { addProduct } from "../../store/actions/productActions";
 import ReactFileReader from "react-file-reader";
 
 const AddContact = (props) => {
@@ -110,7 +110,7 @@ const AddContact = (props) => {
             </div>
             <div className="form-group row">
               <label className="col-sm-3 col-form-label">Total</label>
-              <input type="text" className="txt-input col-sm-7" />
+              <input type="text" className="txt-input col-sm-7" value={price * quantity} />
             </div>
             <div className="row">
               <div className="col-md-3"></div>

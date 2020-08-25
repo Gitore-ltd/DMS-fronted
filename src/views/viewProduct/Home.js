@@ -1,14 +1,14 @@
 import React, { useEffect } from "react";
-import Navbar from "../components/Navbar";
-import ProductBox from "../components/ProductBox";
-import "../assets/styles/containers/Home.css";
-import Img from "../assets/images/avatar.png";
-import cement from "../assets/images/cement.png";
-import cimerwa from "../assets/images/cimerwa.jpg";
-import hammer from "../assets/images/hammer.jpeg";
+import Navbar from "../../components/Navbar";
+import ProductBox from "../../components/ProductBox";
+import "./Home.css";
+// import Img from "../assets/images/avatar.png";
+// import cement from "../assets/images/cement.png";
+// import cimerwa from "../assets/images/cimerwa.jpg";
+// import hammer from "../assets/images/hammer.jpeg";
 import { connect } from "react-redux";
-import { getProducts } from "../store/actions/productActions";
-import Spinner from "../components/Spinner/Spinner";
+import { getProducts } from "../../store/actions/productActions";
+import Spinner from "../../components/Spinner/Spinner";
 
 function Home(props) {
   useEffect(() => {

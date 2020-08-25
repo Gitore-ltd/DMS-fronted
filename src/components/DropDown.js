@@ -6,7 +6,7 @@ const DropDown = (props) => {
     <>
       <div className={props.classes.toString().replace(",", " ")}>
         <Link
-          to="/"
+          to="/updateProfile"
           className="sign-out-drop-down"
           onClick={() => console.log("signout")}
         >
