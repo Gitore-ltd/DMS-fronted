@@ -8,10 +8,6 @@
 
 - [ ] Landing Page
 
-- [ ] Sign up
-
-- [ ] Login
-
 
 #### How should this be manually tested?
 
@@ -21,7 +17,7 @@
 
 - Open the project 
 
-       cd DMS-Debt-Managment-System-.git && cd .
+       cd DMS-fronted.git.git && cd .
 
 - Open this feature branch
 
@@ -42,8 +38,11 @@
 
 #### Screenshots (if appropriate)
 
-       Landing Page
+       a
 
 
 
 #### Questions:
+
+
+- N/A

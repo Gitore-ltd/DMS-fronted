@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
-import "../assets/styles/containers/profilePage.css";
-import Navbar from "../components/Navbar";
+import "./profilePage.css";
+import Navbar from "../../components/Navbar";
 import Form from "react-bootstrap/Form";
 import Col from "react-bootstrap/Col";
 import { toast } from "react-toastify";
@@ -9,7 +9,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUser } from "@fortawesome/free-solid-svg-icons";
 import ButtonGroup from "react-bootstrap/ButtonGroup";
 import Button from "react-bootstrap/Button";
-import { userProfile } from "../store/actions/userAction";
+import { userProfile } from "../../store/actions/userAction";
 
 const UpdateProfile = (props) => {
   const [firstName, setFirstName] = useState("");

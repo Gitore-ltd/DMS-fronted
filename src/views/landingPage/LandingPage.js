@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import '../assets/styles/containers/LandingPage.css';
-import NavAuth from '../components/NavAuth';
+import './LandingPage.css';
+import NavAuth from '../../components/NavAuth';
 
 const LandingPage = () => {
   return(
@@ -23,7 +23,7 @@ const LandingPage = () => {
           <div className="landingPageRightContent">
           <img
             className="landingPageImage"
-            src={require('../assets/images/engineer.png')}
+            src={require('../../assets/images/engineer.png')}
             alt="engineer pic"
           /> 
           </div>

@@ -1,12 +1,12 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import "../assets/styles/containers/loginPage.css";
-import LineDivider from "../components/lineDivider.js";
+import "./loginPage.css";
+import LineDivider from "../../components/lineDivider.js";
 import { FcGoogle } from "react-icons/fc";
 import { FaFacebookF } from "react-icons/fa";
 import { connect } from "react-redux";
-import LeftSide from "../components/registrationLeftSide";
-import { userSignin } from "../store/actions/userAction";
+import LeftSide from "../../components/registrationLeftSide";
+import { userSignin } from "../../store/actions/userAction";
 
 const Login = (props) => {
   const [email, setEmail] = useState("");

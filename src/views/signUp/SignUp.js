@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
-import '../assets/styles/containers/signupPage.css';
+import './signupPage.css';
 import { Link } from 'react-router-dom';
-import LineDivider from '../components/lineDivider.js';
+import LineDivider from '../../components/lineDivider.js';
 import { FcGoogle } from 'react-icons/fc';
 import { FaFacebookF } from 'react-icons/fa';
 import { Alert } from 'react-bootstrap';
-import LeftSide from '../components/registrationLeftSide';
+import LeftSide from '../../components/registrationLeftSide';
 import { connect } from 'react-redux';
-import { userSignup } from '../store/actions/userAction';
+import { userSignup } from '../../store/actions/userAction';
 
 const SignUp = props => {
 
@@ -67,8 +67,8 @@ const SignUp = props => {
 
 const mapStateToProps = state => (
   {
-    user: state.userReducer.user,
-    token: state.userReducer.token
+    user: state.user.user,
+    token: state.user.token
   }
 );
 

@@ -1,0 +1,61 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+.openRequestContainer{
+    height: 100vh;
+    width: 100%;
+}
+
+.openRequestContainerContent{
+    height: 90vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.openRequestContainerContentContainer{
+    background-color: rebeccapurple;
+    height: 80vh;
+    width: 60%;
+}
+
+.openRequestContainerContentRight{
+    height: 100%;
+    width: 50%;
+    float: right;
+    justify-content: left;
+    align-items: center;
+    display: flex;
+}
+
+.openRequestContainerContentLeft{
+    height: 100%;
+    width: 50%;
+    float: left;
+}
+
+.openRequestLabel{
+    color: whitesmoke;
+    float: left;
+    font-size: 13px;
+}
+
+.openRequestField{
+    float: right;
+    width: 20rem;
+    height: 2.8rem;
+}
+
+.DisplayHorizontally{
+    display: grid;
+    margin-bottom: 1.5rem;
+}
+
+.submitRequestBtn{
+    width: 20rem;
+    height: 3rem;
+}
+

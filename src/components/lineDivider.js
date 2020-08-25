@@ -1,5 +1,5 @@
 import React from 'react';
-import '../assets/styles/containers/loginPage.css';
+import '../../src/views/login/loginPage.css';
 import Line from './line';
 
 const divider = () => (
