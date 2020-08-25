@@ -5,6 +5,10 @@
   margin: 70px auto;
 }
 
+.form-control{
+  width: 25.4rem;
+}
+
 .add-product-image {
   flex: 2;
   margin: auto;
@@ -81,4 +85,9 @@
   background-color: grey;
   cursor: pointer;
   color: #ccc;
+}
+
+#cancleAddProduct{
+  background-color: white;
+  border: 1px solid rgb(196, 196, 196);
 }

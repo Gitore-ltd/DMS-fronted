@@ -1,11 +1,13 @@
+
 body {
   background-color: #eee;
 }
 
 .search-box {
-  width: 70%;
+  width: 60%;
   height: 40px;
-  margin: 40px auto 20px auto;
+  margin: 40px auto 40px auto;
+  font-size: 12px;
 }
 
 .search-box input {
@@ -15,20 +17,22 @@ body {
   border-bottom: 2px solid #ccc;
   padding: 10px;
   border-radius: 4px;
-  text-align: center;
+  text-align: left;
+  padding-left: 1rem;
 }
 
 .content {
   width: 60vw;
-  height: 80vh;
+  height: auto;
   margin: auto;
   scrollbar-width: none;
 }
 
 .products-list {
+  overflow-y: hidden;
   scrollbar-width: none;
   overflow: auto;
-  height: 69vh;
+  height: auto;
   display: flex;
   justify-content: center;
   justify-content: space-evenly;
@@ -36,8 +40,8 @@ body {
 }
 
 .product {
-  width: 180px; 
-  height: 200px;
+  width: 250px; 
+  height: 250px;
   background-color: white;
   border-radius: 10px;
   margin: 10px;

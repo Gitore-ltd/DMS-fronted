@@ -19,12 +19,15 @@ const Navbar = (props) => {
   return (
     <>
       <div className="navbar">
-        <div className="logo">
-          <Link to="/">
+      <div className="navbarLeft">
+      <div className="logo">
+          <Link to="/home">
             <img src={Logo} alt="DMS" />
           </Link>
         </div>
-        <div className="menu">
+      </div>
+      <div className="navbarRight">
+      <div className="menu">
           {token !== null ? (
             <>
               <div>
@@ -52,6 +55,38 @@ const Navbar = (props) => {
           <i className="fa fa-caret-down" aria-hidden="true"></i>
           <DropDown classes={classes} />
         </div>
+      </div>
+        
+        
+        {/*
+        <div className="menu">
+          {token !== null ? (
+            <>
+              <div>
+                <Link to="/home">Home</Link>
+                <Link to="/loans">Loans</Link>
+                <Link to="/viewrequest">Reports</Link>
+                <Link to="/addproduct">Add product</Link>
+              </div>
+              <Bell />
+            </>
+          ) : (
+            <>
+              <Link to="/login" className="login">
+                Login
+              </Link>
+              <Link to="/signup" className="signup">
+                Get Started
+              </Link>
+            </>
+          )}
+        </div>
+        <div id="top-menu-avatar" onClick={showMenu}>
+          <div className="user-name">Kagorora Maxime</div>
+          <img className="user-avatar" src={UserAvatar} alt="" />
+          <i className="fa fa-caret-down" aria-hidden="true"></i>
+          <DropDown classes={classes} />
+        </div> */}
       </div>
     </>
   );

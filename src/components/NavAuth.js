@@ -7,17 +7,17 @@ const NavAuth = () => {
   return (
     <div className="nav">
       <div className="navLeft">
-        <img className="landingPageLogo" src={logo} alt="main logo"/>
+        <img className="landingPageLogo" src={logo}/>
       </div>
       <div className="navRight">
         <div className="navRightContent">
         <ul className="nav-link">
-         <Link to="/login">
-          <li className="landingLoginbtn">Login</li>
-        </Link> 
         <Link to="/signup">
         <li className="landingSignupbtn">Sign Up</li>
         </Link>
+         <Link to="/login">
+          <li className="landingLoginbtn">Login</li>
+        </Link> 
         </ul>
     </div>
     </div>
