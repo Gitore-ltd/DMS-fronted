@@ -2,10 +2,6 @@ import React, { useEffect } from "react";
 import Navbar from "../../components/Navbar";
 import ProductBox from "../../components/ProductBox";
 import "./Home.css";
-// import Img from "../assets/images/avatar.png";
-// import cement from "../assets/images/cement.png";
-// import cimerwa from "../assets/images/cimerwa.jpg";
-// import hammer from "../assets/images/hammer.jpeg";
 import { connect } from "react-redux";
 import { getProducts } from "../../store/actions/productActions";
 import Spinner from "../../components/Spinner/Spinner";
@@ -29,7 +25,15 @@ function Home(props) {
       <Navbar profile={profile} />
       <div className="content">
         <div className="search-box">
-          <input type="input" placeholder="Type here to search product" />
+          {/* <input type="input" placeholder="Type here to search product" /> */}
+          <form >
+            <div class="input-group">
+              <input type="text" class="form-control" placeholder="Search" name="search" />
+              <div class="input-group-btn">
+                <button class="btn btn-default" type="submit"></button>
+              </div>
+            </div>
+          </form>
         </div>
         <div className="products-list row">
           {props.products !== undefined ? (
@@ -37,8 +41,8 @@ function Home(props) {
               <ProductBox key={product.productId} product={product} />
             ))
           ) : (
-            <Spinner />
-          )}
+              <Spinner />
+            )}
         </div>
       </div>
     </div>

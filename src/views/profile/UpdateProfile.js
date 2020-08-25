@@ -91,11 +91,11 @@ const UpdateProfile = (props) => {
                     <FontAwesomeIcon icon={faUser} size="5x" />
                   </p>
                 ) : (
-                  <img
-                    src={userProfile.profileImage}
-                    style={{ width: "300px" }}
-                  />
-                )}
+                    <img
+                      src={userProfile.profileImage}
+                      style={{ width: "300px" }}
+                    />
+                  )}
               </div>
 
               <div className="other">
@@ -118,28 +118,37 @@ const UpdateProfile = (props) => {
           </div>
           <div className="ProfileSideContainerRight">
             <Form onSubmit={handleSubmit}>
-              <Form.Row className="DisplayHorizontally">
+              {/* <Form.Row className="DisplayHorizontally">
                 <Form.Group
                   as={Col}
                   controlId="formGridEmail"
                   className="SpaceBtwLabels"
                 >
-                  <Form.Label className="TextLabelColor">FirstName</Form.Label>
+                  <Form.Label >FirstName</Form.Label>
                   <Form.Control
                     type="text"
-                    className="InputField"
+                    class="form-control"
                     onChange={(e) => setFirstName(e.target.value)}
                     placeholder={userProfile.firstName}
                   />
                 </Form.Group>
-              </Form.Row>
-              <Form.Row className="DisplayHorizontally">
+              </Form.Row> */}
+              <div className="form-group row">
+                <label className="col-sm-3 col-form-label">FirstName</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  onChange={(e) => setFirstName(e.target.value)}
+                  placeholder={userProfile.firstName}
+                />
+              </div>
+              {/* <Form.Row className="DisplayHorizontally">
                 <Form.Group
                   as={Col}
                   controlId="formGridEmail"
                   className="SpaceBtwLabels"
                 >
-                  <Form.Label className="TextLabelColor">LastName</Form.Label>
+                  <Form.Label >LastName</Form.Label>
                   <Form.Control
                     type="text"
                     className="InputField"
@@ -147,14 +156,25 @@ const UpdateProfile = (props) => {
                     placeholder={userProfile.lastName}
                   />
                 </Form.Group>
-              </Form.Row>
-              <Form.Row className="DisplayHorizontally">
+              </Form.Row> */}
+              <div className="form-group row">
+                <label className="col-sm-3 col-form-label">LastName</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  onChange={(e) => setLastName(e.target.value)}
+                  placeholder={userProfile.lastName}
+                />
+              </div>
+
+
+              {/* <Form.Row className="DisplayHorizontally">
                 <Form.Group
                   as={Col}
                   controlId="formGridEmail"
                   className="SpaceBtwLabels"
                 >
-                  <Form.Label className="TextLabelColor">
+                  <Form.Label >
                     Date Of Birth
                   </Form.Label>
                   <Form.Control
@@ -163,14 +183,24 @@ const UpdateProfile = (props) => {
                     value={userProfile.dateOfBirth}
                   />
                 </Form.Group>
-              </Form.Row>
-              <Form.Row className="DisplayHorizontally">
+              </Form.Row> */}
+
+              <div className="form-group row">
+                <label className="col-sm-3 col-form-label">Date Of Birth</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  value={userProfile.dateOfBirth}
+                />
+              </div>
+
+              {/* <Form.Row className="DisplayHorizontally">
                 <Form.Group
                   as={Col}
                   controlId="formGridEmail"
                   className="SpaceBtwLabels"
                 >
-                  <Form.Label className="TextLabelColor">
+                  <Form.Label >
                     National ID
                   </Form.Label>
                   <Form.Control
@@ -180,14 +210,26 @@ const UpdateProfile = (props) => {
                     placeholder={userProfile.nationalId}
                   />
                 </Form.Group>
-              </Form.Row>
-              <Form.Row className="DisplayHorizontally">
+              </Form.Row> */}
+
+
+              <div className="form-group row">
+                <label className="col-sm-3 col-form-label">NationalId</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  onChange={(e) => setNationalId(e.target.value)}
+                  placeholder={userProfile.nationalId}
+                />
+              </div>
+
+              {/* <Form.Row className="DisplayHorizontally">
                 <Form.Group
                   as={Col}
                   controlId="formGridEmail"
                   className="SpaceBtwLabels"
                 >
-                  <Form.Label className="TextLabelColor">Email</Form.Label>
+                  <Form.Label >Email</Form.Label>
                   <Form.Control
                     type="text"
                     className="InputField"
@@ -195,14 +237,25 @@ const UpdateProfile = (props) => {
                     readonly
                   />
                 </Form.Group>
-              </Form.Row>
-              <Form.Row className="DisplayHorizontally">
+              </Form.Row> */}
+
+              <div className="form-group row">
+                <label className="col-sm-3 col-form-label">Email</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  value={userProfile.email}
+                  readonly
+                />
+              </div>
+
+              {/* <Form.Row className="DisplayHorizontally">
                 <Form.Group
                   as={Col}
                   controlId="formGridEmail"
                   className="SpaceBtwLabels"
                 >
-                  <Form.Label className="TextLabelColor">Tel</Form.Label>
+                  <Form.Label >Tel</Form.Label>
                   <Form.Control
                     type="text"
                     className="InputField"
@@ -210,8 +263,19 @@ const UpdateProfile = (props) => {
                     placeholder={userProfile.telephone}
                   />
                 </Form.Group>
-              </Form.Row>
-              <Form.Row
+              </Form.Row> */}
+
+              <div className="form-group row">
+                <label className="col-sm-3 col-form-label">Telphone</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  onChange={(e) => setTelephone(e.target.value)}
+                  placeholder={userProfile.telephone}
+                />
+              </div>
+
+              {/* <Form.Row
                 className="DisplayHorizontally"
                 style={{ marginBottom: "10px" }}
               >
@@ -220,7 +284,7 @@ const UpdateProfile = (props) => {
                   controlId="formGridEmail"
                   className="SpaceBtwLabels"
                 >
-                  <Form.Label className="TextLabelColor">Address</Form.Label>
+                  <Form.Label >Address</Form.Label>
                   <Form.Control
                     type="text"
                     className="InputField"
@@ -228,7 +292,18 @@ const UpdateProfile = (props) => {
                     placeholder={userProfile.address}
                   />
                 </Form.Group>
-              </Form.Row>
+              </Form.Row> */}
+
+              <div className="form-group row">
+                <label className="col-sm-3 col-form-label">Telphone</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  onChange={(e) => setAddress(e.target.value)}
+                  placeholder={userProfile.address}
+                />
+              </div>
+
               <ButtonGroup
                 aria-label="Basic example"
                 className="FinalButtonContainer"

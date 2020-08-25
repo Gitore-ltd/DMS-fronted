@@ -13,22 +13,21 @@
 
 .navLeft{
   float: left;
-  width: 50%;
+  width: 75%;
   height: 100%;
   float: left;
   display: flex;
   align-items: center;
-  justify-content:left;
 }
 
 .landingPageLogo{
-  margin-left: 3rem;
+  margin-left: 5rem;
   height: 2.8rem;
 }
 
 .navRight{
   float: right;
-  width: 50%;
+  width: 25%;
   height: 100%;
   display: flex;
   justify-content: center;
@@ -41,35 +40,40 @@
   width: 70%;
   height: 100%;
 }
-
 .navRightContent ul{
   height: 10vh;
+  display: flex;
+  justify-content: left; 
+  align-items: center;
 }
 
 .navRightContent li{
   font-size: 12px;
-  line-height: 8vh;
+  /* line-height: 5vh; */
   float: right;
   color: rgb(98, 98, 97);
+  height: 5vh;
 }
 
 .landingSignupbtn{
   background-color: #ffffff;
   border: #ffffff;
-  width: 7rem;
+  width: 6rem;
   border-radius: 50px;
   box-shadow: 2px 4px 10px rgba(62, 61, 61, 0.1);
-  /* margin-left: 25rem; */
   text-align: center;
-  height: 3rem;
-  line-height: 3rem;
-  margin-top: 13px;
+  /* height: 2.4rem; */
   display: flex;
-  justify-content: center;
-  align-items: center;
-}
+  justify-content: center; 
+  align-items: center; 
+  line-height: 8vh; 
+} 
 
 .landingLoginbtn{
   margin-left: 2rem;
-  line-height: 2.3rem;
-}
+  line-height: 8vh;
+  display: flex;
+  justify-content: center; 
+  align-items: center; 
+  line-height: 8vh; 
+} 

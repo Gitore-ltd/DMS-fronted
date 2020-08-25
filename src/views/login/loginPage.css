@@ -1,5 +1,4 @@
 #or{
-    /* background-color: red; */
     width: 27rem;
     height: 2.5rem;
     display: flex;
@@ -126,13 +125,13 @@
 
 .loginSocials span{
     display: inline-block;
-    width: 14em;
-    height: 3rem;
+    width: 17.45em;
+    height: 2.5rem;
     background: white;
     font-size: 11px;
     text-align: center;
     vertical-align: middle;
-    line-height: 3rem; 
+    line-height: 2.5rem; 
     border: 0.5px solid #c9c9c9;
     border-radius: 10px;
     margin-bottom: 1rem;
@@ -153,7 +152,7 @@
 }
 
 .loginInputs input{
-    height: 3rem;
+    height: 2.5rem;
     border: 0.5px solid #c9c9c9;
     border-radius: 10px;
     padding-left: 1rem;

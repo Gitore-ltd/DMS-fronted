@@ -20,8 +20,6 @@ const AddContact = (props) => {
     const formData = new FormData();
     formData.append("image", productImage);
     formData.append("upload_preset", "sa2wd4gq");
-
-    console.log("::::>>>", formData);
     const product = {
       title,
       quality,
@@ -35,7 +33,6 @@ const AddContact = (props) => {
   };
   const handleImageUpload = (files) => {
     setProductImage(files[0]);
-    console.log("<><><>:", productImage);
   };
   const profile = {
     image: "",
@@ -64,10 +61,11 @@ const AddContact = (props) => {
           </div>
           <form onSubmit={handleAddProduct}>
             <div className="form-group row">
+
               <label className="col-sm-3 col-form-label">Product name</label>
               <input
                 type="text"
-                className="txt-input col-sm-7"
+                class="form-control"
                 onChange={(e) => setTitle(e.target.value)}
               />
             </div>
@@ -87,11 +85,11 @@ const AddContact = (props) => {
                 <div className="row qty">
                   <input
                     type="number"
-                    className="col-md-5"
+                    className="custom-select col-md-6"
                     onChange={(e) => setQuantity(e.target.value)}
                   />
                   <select
-                    className="custom-select col-md-6"
+                    className="custom-select col-md-5"
                     onChange={(e) => setUnit(e.target.value)}
                   >
                     <option value="Kg">Kg</option>
@@ -104,13 +102,13 @@ const AddContact = (props) => {
               <label className="col-sm-3 col-form-label">Price/Rwf</label>
               <input
                 type="text"
-                className="txt-input col-sm-7"
+                class="form-control"
                 onChange={(e) => setPrice(e.target.value)}
               />
             </div>
             <div className="form-group row">
               <label className="col-sm-3 col-form-label">Total</label>
-              <input type="text" className="txt-input col-sm-7" value={price * quantity} />
+              <input type="text" class="form-control" value={price * quantity} />
             </div>
             <div className="row">
               <div className="col-md-3"></div>
@@ -118,7 +116,7 @@ const AddContact = (props) => {
                 <button className="btn btn-primary" type="submit">
                   Add product
                 </button>
-                <button className="btn btn-outline-secondary">Cancel</button>
+                <button className="btn btn-outline-secondary" id="cancleAddProduct">Cancel</button>
               </div>
             </div>
           </form>
