@@ -1,25 +1,26 @@
 import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
-import Table from "react-bootstrap/Table";
+import Table from 'react-bootstrap/Table';
 import './myLoans.css';
 import NavBar from '../../components/Navbar';
 import { viewMyRequests } from '../../store/actions/userAction';
 
-const Loans = props => {
-
+const Loans = (props) => {
   const [requests, setRequests] = useState([]);
-
 
   useEffect(() => {
     async function fetchAllRequests() {
       const userToken = localStorage.getItem('user-token');
-      const res = await fetch(`https://debt-management-system.herokuapp.com/api/v1/myRequets`, {
-        method: "GET",
-        headers: {
-          "content-type": "application/json",
-          token: userToken
+      const res = await fetch(
+        'https://debt-management-system.herokuapp.com/api/v1/myRequets',
+        {
+          method: 'GET',
+          headers: {
+            'content-type': 'application/json',
+            token: userToken,
+          },
         },
-      });
+      );
       const Allrequests = await res.json();
       setRequests(Allrequests.allRequest);
       console.log(requests);
@@ -27,13 +28,11 @@ const Loans = props => {
     fetchAllRequests();
   });
 
-
   return (
     <div className="myLoansContainer">
       <NavBar />
       <div className="myLoansContainerSide">
         <div className="contentContainer">
-
           <Table striped bordered hover className="usersTable">
             <thead>
               <tr>
@@ -46,29 +45,26 @@ const Loans = props => {
             </thead>
             <tbody>
               {requests
-              
-             ? requests.map((request, id) => (
-                <tr key={id}>
-                  <td>{request.productTitle}</td>
-                  <td>{request.quantity}</td>
-                  <td>{request.tobePayed}</td>
-                  <td>{request.total}</td>
-                  <td>{request.requestStatus}</td>
-                </tr>
-              ))
-              : null}
+                ? requests.map((request, id) => (
+                  <tr key={id}>
+                    <td>{request.productTitle}</td>
+                    <td>{request.quantity}</td>
+                    <td>{request.tobePayed}</td>
+                    <td>{request.total}</td>
+                    <td>{request.requestStatus}</td>
+                  </tr>
+                ))
+                : null}
             </tbody>
           </Table>
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-const mapStateToProps = state => (
-  {
-    user: state.user.user,
-  }
-);
+const mapStateToProps = (state) => ({
+  user: state.user.user,
+});
 
 export default connect(mapStateToProps, { viewMyRequests })(Loans);

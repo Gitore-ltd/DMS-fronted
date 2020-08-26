@@ -36,4 +36,5 @@
 .usersTable tr{
     background-color: #FFFFFF;
     text-align: center;
+    margin-bottom: 2rem !important;
 }
