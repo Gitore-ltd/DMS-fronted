@@ -8,7 +8,8 @@ import products from '../store/reducers/productReducer';
 const rootReducer = combineReducers({
     user,
     products,
-    token: user
+    token: user,
+    selectedProduct: products
 });
 
 export default function configureStore() {

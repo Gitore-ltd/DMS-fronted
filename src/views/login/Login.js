@@ -1,16 +1,16 @@
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
-import "./loginPage.css";
-import LineDivider from "../../components/lineDivider.js";
-import { FcGoogle } from "react-icons/fc";
-import { FaFacebookF } from "react-icons/fa";
-import { connect } from "react-redux";
-import LeftSide from "../../components/registrationLeftSide";
-import { userSignin } from "../../store/actions/userAction";
+import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
+import './loginPage.css';
+import { FcGoogle } from 'react-icons/fc';
+import { FaFacebookF } from 'react-icons/fa';
+import { connect } from 'react-redux';
+import LineDivider from '../../components/lineDivider.js';
+import LeftSide from '../../components/registrationLeftSide';
+import { userSignin } from '../../store/actions/userAction';
 
 const Login = (props) => {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -19,9 +19,9 @@ const Login = (props) => {
       password,
     };
     const userData = await props.userSignin(user);
-    if(userData){
+    if (userData) {
       localStorage.setItem('user-token', userData.jwtoken);
-      props.history.push('/home')
+      props.history.push('/home');
     }
   };
 

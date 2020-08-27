@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 import Navbar from '../../components/Navbar';
 import ProductBox from '../../components/ProductBox';
 import './Home.css';
-import { getProducts } from '../../store/actions/productActions';
+import { getProducts, updateSelectedProduct } from '../../store/actions/productActions';
 import Spinner from '../../components/Spinner/Spinner';
 
 const Home = (props) => {
@@ -23,10 +23,10 @@ const Home = (props) => {
   };
 
   const handleClick = (product) => {
-    props.history.push({
-      pathname: '/viewoneproduct',
-      search: qs.stringify(product),
-    });
+
+    props.updateSelectedProduct(product);
+
+    props.history.push('/viewoneproduct');
   };
 
   return (
@@ -70,4 +70,4 @@ const mapStateToProps = (state) => ({
   products: state.products.products,
   token: state.token,
 });
-export default connect(mapStateToProps, { getProducts })(Home);
+export default connect(mapStateToProps, { getProducts, updateSelectedProduct })(Home);
