@@ -1,23 +1,32 @@
-import React, { useEffect } from "react";
-import Navbar from "../../components/Navbar";
-import ProductBox from "../../components/ProductBox";
-import "./Home.css";
-import { connect } from "react-redux";
-import { getProducts } from "../../store/actions/productActions";
-import Spinner from "../../components/Spinner/Spinner";
+/* eslint-disable linebreak-style */
+import React, { useEffect, useState } from 'react';
+import qs from 'qs';
+import { connect } from 'react-redux';
+import Navbar from '../../components/Navbar';
+import ProductBox from '../../components/ProductBox';
+import './Home.css';
+import { getProducts, updateSelectedProduct } from '../../store/actions/productActions';
+import Spinner from '../../components/Spinner/Spinner';
 
-function Home(props) {
+const Home = (props) => {
   useEffect(() => {
     async function fetchProducts() {
       await props.getProducts(
-        "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImthZ29yb3JhbWF4aW1lQGdtYWlsLmNvbSIsImlhdCI6MTU5ODAwNjI5OH0.mgKJFmP3AZm1DDdjUXx29GyA0lrulX9InY5pqFFfHY0"
+        'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImthZ29yb3JhbWF4aW1lQGdtYWlsLmNvbSIsImlhdCI6MTU5ODAwNjI5OH0.mgKJFmP3AZm1DDdjUXx29GyA0lrulX9InY5pqFFfHY0'
       );
     }
     fetchProducts();
   }, []);
   const profile = {
-    image: "",
-    username: "n-one",
+    image: '',
+    username: 'n-one',
+  };
+
+  const handleClick = (product) => {
+
+    props.updateSelectedProduct(product);
+
+    props.history.push('/viewoneproduct');
   };
 
   return (
@@ -25,12 +34,16 @@ function Home(props) {
       <Navbar profile={profile} />
       <div className="content">
         <div className="search-box">
-          {/* <input type="input" placeholder="Type here to search product" /> */}
-          <form >
-            <div class="input-group">
-              <input type="text" class="form-control" placeholder="Search" name="search" />
-              <div class="input-group-btn">
-                <button class="btn btn-default" type="submit"></button>
+          <form>
+            <div className="input-group">
+              <input
+                type="text"
+                className="form-control"
+                placeholder="Search"
+                name="search"
+              />
+              <div className="input-group-btn">
+                <button className="btn btn-default" type="submit" />
               </div>
             </div>
           </form>
@@ -38,19 +51,23 @@ function Home(props) {
         <div className="products-list row">
           {props.products !== undefined ? (
             props.products.map((product) => (
-              <ProductBox key={product.productId} product={product} />
+              <ProductBox
+                key={product.productId}
+                product={product}
+                handleClick={() => handleClick(product)}
+              />
             ))
           ) : (
-              <Spinner />
-            )}
+            <Spinner />
+          )}
         </div>
       </div>
     </div>
   );
-}
+};
 
 const mapStateToProps = (state) => ({
   products: state.products.products,
   token: state.token,
 });
-export default connect(mapStateToProps, { getProducts })(Home);
+export default connect(mapStateToProps, { getProducts, updateSelectedProduct })(Home);

@@ -5,3 +5,5 @@ export const MY_REQUESTS = 'MY_REQUESTS';
 export const USER_UPDATE = 'USER_UPDATE';
 export const GET_PRODUCTS = 'GET_PRODUCTS';
 export const ADD_PRODUCT = 'ADD_PRODUCT';
+export const LOAN_REQUEST = 'LOAN_REQUEST';
+export const PRODUCT_SELECTED = 'PRODUCT_SELECTED';

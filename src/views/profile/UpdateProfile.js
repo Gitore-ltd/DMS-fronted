@@ -50,6 +50,8 @@ const UpdateProfile = (props) => {
       firstName,
       lastName,
       profileImage: imageLink.url,
+      nationalId,
+      telephone,
     };
     const userData = await props.userProfile(newProfile);
     if (userData && userData.status === 200) {
@@ -104,7 +106,7 @@ const UpdateProfile = (props) => {
                 </p>
                 <p className="userRole">{userProfile.role}</p>
                 <ButtonGroup className="buttonContainer">
-                  <input
+                  <input id="profileInputs"
                     type="file"
                     name="file"
                     placeholder="Upload Image"
@@ -135,7 +137,7 @@ const UpdateProfile = (props) => {
               </Form.Row> */}
               <div className="form-group row">
                 <label className="col-sm-3 col-form-label">FirstName</label>
-                <input
+                <input id="profileInputs"
                   type="text"
                   class="form-control"
                   onChange={(e) => setFirstName(e.target.value)}
@@ -159,7 +161,7 @@ const UpdateProfile = (props) => {
               </Form.Row> */}
               <div className="form-group row">
                 <label className="col-sm-3 col-form-label">LastName</label>
-                <input
+                <input id="profileInputs"
                   type="text"
                   class="form-control"
                   onChange={(e) => setLastName(e.target.value)}
@@ -187,7 +189,7 @@ const UpdateProfile = (props) => {
 
               <div className="form-group row">
                 <label className="col-sm-3 col-form-label">Date Of Birth</label>
-                <input
+                <input id="profileInputs"
                   type="text"
                   class="form-control"
                   value={userProfile.dateOfBirth}
@@ -215,7 +217,7 @@ const UpdateProfile = (props) => {
 
               <div className="form-group row">
                 <label className="col-sm-3 col-form-label">NationalId</label>
-                <input
+                <input id="profileInputs"
                   type="text"
                   class="form-control"
                   onChange={(e) => setNationalId(e.target.value)}
@@ -241,7 +243,7 @@ const UpdateProfile = (props) => {
 
               <div className="form-group row">
                 <label className="col-sm-3 col-form-label">Email</label>
-                <input
+                <input id="profileInputs"
                   type="text"
                   class="form-control"
                   value={userProfile.email}
@@ -267,7 +269,7 @@ const UpdateProfile = (props) => {
 
               <div className="form-group row">
                 <label className="col-sm-3 col-form-label">Telphone</label>
-                <input
+                <input id="profileInputs"
                   type="text"
                   class="form-control"
                   onChange={(e) => setTelephone(e.target.value)}
@@ -296,7 +298,7 @@ const UpdateProfile = (props) => {
 
               <div className="form-group row">
                 <label className="col-sm-3 col-form-label">Telphone</label>
-                <input
+                <input id="profileInputs"
                   type="text"
                   class="form-control"
                   onChange={(e) => setAddress(e.target.value)}

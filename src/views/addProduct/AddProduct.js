@@ -1,8 +1,8 @@
 import React, { useState } from "react";
+import { connect } from "react-redux";
 import Navbar from "../../components/Navbar";
 import "./AddProduct.css";
 import NoImg from "../../assets/images/no-image.png";
-import { connect } from "react-redux";
 import { addProduct } from "../../store/actions/productActions";
 import ReactFileReader from "react-file-reader";
 
