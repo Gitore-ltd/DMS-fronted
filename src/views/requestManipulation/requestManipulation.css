@@ -1,0 +1,100 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+.requestManipulation{
+    height: 100vh;
+    width: 100%;
+}
+
+.requestManipulationContent{
+    height: 90vh;
+    width: 100%;
+}
+
+.requestManipulationRight{
+    float: right;
+    width: 50%;
+    height: 90vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.requestManipulationLeft{
+    float: left;
+    width: 50%;
+    height: 90vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.requestManipulationLeftContent{
+    height: 75vh;
+    width: 60%;
+}
+
+.requestManipulationLeftContent h1{
+    font-size: 23px;
+    margin-bottom: 2rem;
+    text-transform: uppercase;
+    font-family: 'Roboto', sans-serif;
+    letter-spacing: 2px;
+    font-weight: 900;
+    color: rgb(110, 110, 110);
+}
+
+.requestManipulationRow{
+    margin: 1rem 0;
+    height: 2rem;
+}
+
+.requestManipulationRow label{
+    float: left;
+    font-size: 18px;
+    font-weight: 100;
+    font: lighter;
+}
+.requestManipulationRow input{
+    background-color: transparent;
+    float: right;
+    margin-right: 2rem;
+    border-top: 0;
+    border-left: 0;
+    border-right: 0;
+    border-bottom: 0.5px solid #c5c5c5;
+    width: 55%;
+    font-size: 20px;
+}
+
+.requestManipulationRow button{
+    margin: 0.5rem auto;
+    height: 2.2rem;
+    border: none;
+    width: 11.6rem;
+    display:inline-block;
+    margin-right: 1rem;
+    border-radius: 4px;
+    font-size: 11px;
+    font-family: 'Roboto', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: 900;
+}
+
+.approve_btn{
+    color: #ffffff;
+    background-color: #5CDB94;
+    outline: none;
+    border: none;
+}
+
+.reject_btn{
+    color: #ffffff;
+    background-color: #F7534C;
+    outline: none;
+    border: none;
+}
+

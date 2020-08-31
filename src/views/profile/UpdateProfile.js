@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "./profilePage.css";
+import moment from 'moment';
 import Navbar from "../../components/Navbar";
 import Form from "react-bootstrap/Form";
 import Col from "react-bootstrap/Col";
@@ -16,14 +17,17 @@ const UpdateProfile = (props) => {
   const [lastName, setLastName] = useState("");
   const [nationalId, setNationalId] = useState("");
   const [telephone, setTelephone] = useState("");
+  const [dateOfBirth, setDateOfBirth] = useState();
   const [profileImage, setProfileImage] = useState("");
   const [address, setAddress] = useState("");
   const [userProfile, setUserProfile] = useState({});
   const [image, setImage] = useState("");
   const [loading, setLoading] = useState(false);
+  const [dateOfB, setDateOfB] = useState();
 
   useEffect(() => {
     async function fetchUserProfile() {
+      const dateOfB = moment(userProfile.dateOfBirth).format('YYYY-MM-DD');
       const userToken = localStorage.getItem("user-token");
       const res = await fetch(
         `https://debt-management-system.herokuapp.com/api/v1/getProfile`,
@@ -94,8 +98,8 @@ const UpdateProfile = (props) => {
                   </p>
                 ) : (
                     <img
+                      className = 'imageHolder'
                       src={userProfile.profileImage}
-                      style={{ width: "300px" }}
                     />
                   )}
               </div>
@@ -105,38 +109,27 @@ const UpdateProfile = (props) => {
                   {userProfile.firstName} {userProfile.lastName}
                 </p>
                 <p className="userRole">{userProfile.role}</p>
+                  <div className="buttonContainerContent">
                 <ButtonGroup className="buttonContainer">
-                  <input id="profileInputs"
+                <input id="profileInputs"
                     type="file"
                     name="file"
                     placeholder="Upload Image"
                     onChange={uploadImage}
                     className="uploadButton"
                   />
-                  <Button className="removeButton">REMOVE</Button>
+                  <Button className="removeButton">REMOVE</Button> 
                 </ButtonGroup>
+                  </div>
               </div>
             </div>
           </div>
           <div className="ProfileSideContainerRight">
             <Form onSubmit={handleSubmit}>
-              {/* <Form.Row className="DisplayHorizontally">
-                <Form.Group
-                  as={Col}
-                  controlId="formGridEmail"
-                  className="SpaceBtwLabels"
-                >
-                  <Form.Label >FirstName</Form.Label>
-                  <Form.Control
-                    type="text"
-                    class="form-control"
-                    onChange={(e) => setFirstName(e.target.value)}
-                    placeholder={userProfile.firstName}
-                  />
-                </Form.Group>
-              </Form.Row> */}
+            <p className="userProfileHeader">User Profile</p>
+            <p className="personalInfoProfile">Personal Information</p>
               <div className="form-group row">
-                <label className="col-sm-3 col-form-label">FirstName</label>
+                <label className="col-sm-3 col-form-label" id="profileLabel">FirstName</label>
                 <input id="profileInputs"
                   type="text"
                   class="form-control"
@@ -144,23 +137,8 @@ const UpdateProfile = (props) => {
                   placeholder={userProfile.firstName}
                 />
               </div>
-              {/* <Form.Row className="DisplayHorizontally">
-                <Form.Group
-                  as={Col}
-                  controlId="formGridEmail"
-                  className="SpaceBtwLabels"
-                >
-                  <Form.Label >LastName</Form.Label>
-                  <Form.Control
-                    type="text"
-                    className="InputField"
-                    onChange={(e) => setLastName(e.target.value)}
-                    placeholder={userProfile.lastName}
-                  />
-                </Form.Group>
-              </Form.Row> */}
               <div className="form-group row">
-                <label className="col-sm-3 col-form-label">LastName</label>
+                <label className="col-sm-3 col-form-label" id="profileLabel">LastName</label>
                 <input id="profileInputs"
                   type="text"
                   class="form-control"
@@ -169,54 +147,8 @@ const UpdateProfile = (props) => {
                 />
               </div>
 
-
-              {/* <Form.Row className="DisplayHorizontally">
-                <Form.Group
-                  as={Col}
-                  controlId="formGridEmail"
-                  className="SpaceBtwLabels"
-                >
-                  <Form.Label >
-                    Date Of Birth
-                  </Form.Label>
-                  <Form.Control
-                    type="text"
-                    className="InputField"
-                    value={userProfile.dateOfBirth}
-                  />
-                </Form.Group>
-              </Form.Row> */}
-
               <div className="form-group row">
-                <label className="col-sm-3 col-form-label">Date Of Birth</label>
-                <input id="profileInputs"
-                  type="text"
-                  class="form-control"
-                  value={userProfile.dateOfBirth}
-                />
-              </div>
-
-              {/* <Form.Row className="DisplayHorizontally">
-                <Form.Group
-                  as={Col}
-                  controlId="formGridEmail"
-                  className="SpaceBtwLabels"
-                >
-                  <Form.Label >
-                    National ID
-                  </Form.Label>
-                  <Form.Control
-                    type="text"
-                    className="InputField"
-                    onChange={(e) => setNationalId(e.target.value)}
-                    placeholder={userProfile.nationalId}
-                  />
-                </Form.Group>
-              </Form.Row> */}
-
-
-              <div className="form-group row">
-                <label className="col-sm-3 col-form-label">NationalId</label>
+                <label className="col-sm-3 col-form-label" id="profileLabel">NationalId</label>
                 <input id="profileInputs"
                   type="text"
                   class="form-control"
@@ -224,25 +156,25 @@ const UpdateProfile = (props) => {
                   placeholder={userProfile.nationalId}
                 />
               </div>
+              <div className="form-group row">
+                <label className="col-sm-3 col-form-label" id="profileLabel">Date Of Birth</label>
+                <input id="profileInputs"
+                  type="date"
+                  class="form-control"
+                  onChange={(e) => (setDateOfBirth(e.target.value))}
+                  value = { moment(userProfile.dateOfBirth).format('YYYY-MM-DD') ? (dateOfBirth === 'undefined') : dateOfBirth}
+                  // value={ moment(userProfile.dateOfBirth).format('YYYY-MM-DD') }
+                  
+                  // value = {`${{dateOfBirth}}` ? dateOfBirth : moment(userProfile.dateOfBirth).format('YYYY-MM-DD')}
+                  // value = {moment(userProfile.dateOfBirth).format('YYYY-MM-DD') ?}
+                  // const DOB = {moment(userProfile.dateOfBirth).format('YYYY-MM-DD')}
+                  // value = {`${{dateOfBirth}}` ? dateOfBirth : dateOfB }
+                />
+              </div>
 
-              {/* <Form.Row className="DisplayHorizontally">
-                <Form.Group
-                  as={Col}
-                  controlId="formGridEmail"
-                  className="SpaceBtwLabels"
-                >
-                  <Form.Label >Email</Form.Label>
-                  <Form.Control
-                    type="text"
-                    className="InputField"
-                    value={userProfile.email}
-                    readonly
-                  />
-                </Form.Group>
-              </Form.Row> */}
 
               <div className="form-group row">
-                <label className="col-sm-3 col-form-label">Email</label>
+                <label className="col-sm-3 col-form-label" id="profileLabel">Email</label>
                 <input id="profileInputs"
                   type="text"
                   class="form-control"
@@ -251,53 +183,18 @@ const UpdateProfile = (props) => {
                 />
               </div>
 
-              {/* <Form.Row className="DisplayHorizontally">
-                <Form.Group
-                  as={Col}
-                  controlId="formGridEmail"
-                  className="SpaceBtwLabels"
-                >
-                  <Form.Label >Tel</Form.Label>
-                  <Form.Control
-                    type="text"
-                    className="InputField"
-                    onChange={(e) => setTelephone(e.target.value)}
-                    placeholder={userProfile.telephone}
-                  />
-                </Form.Group>
-              </Form.Row> */}
-
               <div className="form-group row">
-                <label className="col-sm-3 col-form-label">Telphone</label>
+                <label className="col-sm-3 col-form-label" id="profileLabel">Telphone</label>
                 <input id="profileInputs"
                   type="text"
                   class="form-control"
                   onChange={(e) => setTelephone(e.target.value)}
-                  placeholder={userProfile.telephone}
+                  placeholder={`(+250) ${userProfile.telephone}`}
                 />
               </div>
 
-              {/* <Form.Row
-                className="DisplayHorizontally"
-                style={{ marginBottom: "10px" }}
-              >
-                <Form.Group
-                  as={Col}
-                  controlId="formGridEmail"
-                  className="SpaceBtwLabels"
-                >
-                  <Form.Label >Address</Form.Label>
-                  <Form.Control
-                    type="text"
-                    className="InputField"
-                    onChange={(e) => setAddress(e.target.value)}
-                    placeholder={userProfile.address}
-                  />
-                </Form.Group>
-              </Form.Row> */}
-
               <div className="form-group row">
-                <label className="col-sm-3 col-form-label">Telphone</label>
+                <label className="col-sm-3 col-form-label" id="profileLabel">Address</label>
                 <input id="profileInputs"
                   type="text"
                   class="form-control"

@@ -1,0 +1,73 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+.sellerContainer{
+    height: 100vh;
+    width: 100%;
+    background-color: red;
+}
+
+.sellerContentContainer{
+    height: 90vh;
+    width: 100%;
+    background-color: #F8F9FA;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.sellerContent{
+    width: 80%;
+    height: 80vh;
+}
+
+
+
+#sellerTable {
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+  }
+  
+  #sellerTable td, #sellerTable th {
+    border: 1px solid #ddd;
+    padding: 8px;
+  }
+
+  #sellerTable tr:nth-child(even){background-color: #f2f2f2;}
+
+#sellerTable tr:hover {background-color: #ddd;}
+
+#sellerTable th {
+  padding-top: 20px !important;
+  padding-bottom: 20px !important;
+  text-align: left;
+  background-color: #FFFFFF;
+  color: rgb(133, 133, 133);
+  border: 1px solid #ebebeb;
+}
+
+#sellerTableHeader{
+    margin-bottom: 2rem;
+}
+
+.sellerOpenReqBtn{
+  background-color: #39A3D1;
+  color: white;
+  height: 4vh;
+  width: 90px;
+  border: none;
+  font-size: 13px;
+  border-radius: 5px;
+  /* font-size: 20px; */
+}
+
+#sellerTableRow{
+  padding-top: 20px !important;
+  padding-bottom: 20px !important;
+  background-color: #FFFFFF;
+}
+
+

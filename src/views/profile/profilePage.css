@@ -1,187 +1,220 @@
-*{
-    padding: 0;
-    margin: 0;
+* {
+  padding: 0;
+  margin: 0;
 }
 
-.Profilecontainer{
-    height: 100vh;
-    width: 100%;
+.Profilecontainer {
+  height: 100vh;
+  width: 100%;
 }
 
-.ProfileSide{
-    height: 90vh;
-    width: 100%;
-    background-color: #F4F6F8;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.ProfileSide {
+  height: 90vh;
+  width: 100%;
+  background-color: #f4f6f8;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.ProfileSideContainer{
-    height: 80vh;
-    width: 70%;
-    background-color: #FFFFFF;
+.ProfileSideContainer {
+  height: 80vh;
+  width: 70%;
+  background-color: #FFFFFF;
+}
+
+.profilePageTitle{
+  text-align: center;
+  font-size: 20px;
+  height: 8%;
+  line-height: 6vh;
 }
 
 #profileInputs {
-    /* float: right; */
-    width: 300px;
-    /* margin-left: 50px; */
-  }
-
-  .ButtonContainer {
-    text-align: left;
-    width: 44%;
-    margin-left: 60px;
-  }
-
-  .DisplayHorizontally {
-    display: flex;
-    margin-bottom: 10px;
-  }
-
-.ProfileSideContainerLeft{
-    float: left;
-    width: 50%;
-    height: 100%;
-        display: flex;
-    justify-content: center;
-    align-items: center;
-}
-.ProfileSideContainerRight{
-  background-color: seagreen;
-    float: RIght;
-    width: 50%;
-    height: 100%;
-
-    /* height: 20vh; */
-    /* display: flex;
-    justify-content: left;
-    align-items: center; */
+  width: 250px;
+  height: 1.8rem;
+  font-size: 11px;
 }
 
-.ProfileSideContainerLeftContent{
-    height: 70%;
-    width: 70%;
-    /* display: flex;
-    justify-content: center;
-    align-items: center; */
+#profileLabel{
+  font-size: 10px;
+}
+
+.buttonContainerContent {
+  height: 5rem;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 1rem;
+}
+
+.buttonContainer {
+  width: 55%;
+  height: 5rem;
+}
+
+.buttonContainer {
+  display: grid;
+  justify-content: center;
+  align-items: center;
+}
+
+.DisplayHorizontally {
+  display: flex;
+  margin-bottom: 10px;
+}
+
+.ProfileSideContainerLeft {
+  float: left;
+  width: 40%;
+  height: 92%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.ProfileSideContainerRight {
+  float: Right;
+  width: 60%;
+  height: 92%;
+  display: flex;
+  align-items: center;
+  justify-content: left;
+}
+
+.ProfileSideContainerLeftContent {
+  height: 60%;
+  width: 100%;
+  border-right: 1px solid #e2e2e2;
+}
+
+.imageHolder {
+  border-radius: 50%;
+  height: 9rem;
+  width: 9rem;
+  margin-bottom: 2rem;
 }
 
 .userName {
-    color: #848484;
-    text-align: center;
-    font-weight: bold;
-    margin-bottom: 5px;
-  }
-  .userRole {
-    text-align: center;
-    font-size: small;
-    color: #848484;
-    margin-bottom: 20px;
-  }
-  /* .uploadButton {
-    height: 40px;
-    width: 190px;
-    color: white;
-    font-weight: bold;
-    border-radius: 4px;
-    border: 1px solid #848484;
-    background-color: #39A3D1;
-    margin-bottom: 10px;
-  } */
-  
-  .uploadButton::-webkit-file-upload-button {
-    visibility: hidden;
-  }
-  .uploadButton::before {
-    content: 'Select some files';
-    display: inline-block;
-    background: #39a3d1;
-    border: 1px solid #39a3d1;
-    border-radius: 3px;
-    padding: 10px 31px;
-    outline: none;
-    white-space: nowrap;
-    -webkit-user-select: none;
-    cursor: pointer;
-    font-weight: bold;
-    text-transform: uppercase;
-    font-size: 10pt;
-    color: white;
-  }
-  .uploadButton:hover::before {
-    border-color: black;
-  }
-  .uploadButton:active::before {
-    background: -webkit-linear-gradient(top, #e3e3e3, #f9f9f9);
-  }
-
-  .removeButton {
-    height: 40px;
-    width: 190px;
-    background-color: white;
-    color: #848484;
-    font-weight: bold;
-    border: 1px solid #848484;
-    border-radius: 4px;
-  }
-  .buttonContainer {
-    display: grid;
-    justify-content: center;
-  }
-
-  .profileAvatarSurrounding{
-     width: 10rem;
-     height: 10rem;
-     padding: 20px;
-     background-Color: white;
-     border: 1px solid #848484;
-     border-Radius: 50%;
-     display: flex;
-     justify-content: center;
-     align-items: center;
-  }
-
-  .avatarContainer{
-      position: relative;
-    display: block;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  color: #3D3D3D;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  text-align: center;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+.userRole {
+  text-align: center;
+  font-size: small;
+  color: #3D3D3D;
+  margin-bottom: 20px;
 }
 
-.other{
-    width: 100%;
-    position: relative;
-  }
+.uploadButton::-webkit-file-upload-button {
+  visibility: hidden;
+}
+.uploadButton::before {
+  content: 'Select some files';
+  display: inline-block;
+  background: #39a3d1;
+  border: 1px solid #39a3d1;
+  border-radius: 3px;
+  padding: 10px 31px;
+  outline: none;
+  white-space: nowrap;
+  -webkit-user-select: none;
+  cursor: pointer;
+  font-weight: lighter;
+  text-transform: uppercase;
+  font-size: 10pt;
+  color: white;
+}
+.uploadButton:hover::before {
+  border-color: black;
+}
+.uploadButton:active::before {
+  background: -webkit-linear-gradient(top, #e3e3e3, #f9f9f9);
+}
 
-  .FinalButtonContainer{
-      float: right;
-      margin-right: 3.1rem;
-      /* width: 20%;
-      position: absolute; */
-  }
+.removeButton {
+    height: 2rem;
+  width: 190px;
+  background-color: white;
+  color: #3D3D3D;
+  white-space: nowrap;
+  font-weight: lighter;
+  text-transform: uppercase;
+  font-size: 10pt;
+  border: 1px solid #848484;
+  border-radius: 4px;
+}
+
+.profileAvatarSurrounding {
+  width: 10rem;
+  height: 10rem;
+  padding: 20px;
+  background-color: white;
+  border: 1px solid #848484;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.avatarContainer {
+  position: relative;
+  display: block;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.other {
+  width: 100%;
+  position: relative;
+}
+
+.FinalButtonContainer {
+ width: 85%;
+ margin-left: 2rem;
+}
 
 .UpdateButton {
-  height: 40px;
-  width: 148px;
+  height: 2rem;
+  width: 130px;
   margin-right: 40px;
   background-color: #39a3d1;
   border-color: #39a3d1;
   color: white;
-  /* font-weight: bold; */
   border-radius: 4px;
   font-size: 12px;
 }
 .CancelButton {
-  height: 40px;
-  width: 148px;
+  height: 2rem;
+  width: 130px;
   background-color: #707070;
   border-color: #707070;
   color: white;
-  /* font-weight: bold; */
   border-radius: 4px;
   font-size: 12px;
+}
+
+.personalInfoProfile{
+  width: 100%;
+  margin: 1rem 0;
+  padding: 0;
+  text-align: center;
+  font-size: 13px;
+  height: 1.8rem;
+  font-family: 'Droid serif', serif;
+  font-style: italic;
+  color: #707070;
+}
+
+.userProfileHeader{
+  margin-top: 1rem;
+  text-transform: uppercase;
+  font-weight: bold;
 }

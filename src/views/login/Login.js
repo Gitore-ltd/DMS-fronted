@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import jwt from 'jsonwebtoken';
 import './loginPage.css';
 import { FcGoogle } from 'react-icons/fc';
 import { FaFacebookF } from 'react-icons/fa';
@@ -21,7 +22,13 @@ const Login = (props) => {
     const userData = await props.userSignin(user);
     if (userData) {
       localStorage.setItem('user-token', userData.jwtoken);
-      props.history.push('/home');
+      const userRole = jwt.decode(userData.jwtoken).role;
+      // console.log('userRole', userRole);
+      if (userRole === 'customer') {
+        props.history.push('/home');
+      } else {
+        props.history.push('/seller');
+      }
     }
   };
 

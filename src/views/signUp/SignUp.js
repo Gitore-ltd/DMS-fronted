@@ -25,7 +25,7 @@ const SignUp = props => {
 
     const userData = await props.userSignup(user);
     if (userData) {
-      props.history.push('/home')
+      props.history.push('/updateprofile')
     }
   }
 
@@ -49,14 +49,11 @@ const SignUp = props => {
               <input className="signupConfirmPasswordInput" type="password" placeholder="Confirm password" onChange={e => setconfirmPassword(e.target.value)}></input>
             </div>
             <button className="signupPagebtn" type='submit'
-            // onClick={onShowAlert}
             >Sign Up</button>
           </form>
           <p className="signupToLoginLink">have an account?
             <Link to="/login">
-              {/* <a> */}
               Login
-            {/* </a> */}
             </Link>
           </p>
         </div>
