@@ -5,13 +5,11 @@ import './viewOneProduct.css';
 import NavBar from '../../components/Navbar.js';
 
 const OpenRequest = (props) => {
-  const [selectedProd, setSelectProd] = useState({});
   const queryParms = props.history.location.search;
 
   const [product, setProduct] = useState({
     ...qs.parse(queryParms.replace('?', '')),
   });
-
 
   const handleClick = (e) => {
     e.preventDefault();
@@ -28,7 +26,7 @@ const OpenRequest = (props) => {
         <div className="makeRequest">
           <div className="makeRequestLeft">
             <div className="makeRequestimageHolder">
-              <img src={props.selectedProduct.productImage} />
+              <img src={product.productImage} />
             </div>
           </div>
           <div className="makeRequestRight">
@@ -40,7 +38,7 @@ const OpenRequest = (props) => {
                 <label>Title: </label>
                 <input
                   type="text"
-                  value={props.selectedProduct.title}
+                  value={product.title}
                   style={{ marginLeft: '40px', width: '68%' }}
                 />
               </div>
@@ -48,7 +46,7 @@ const OpenRequest = (props) => {
                 <label>Available Quantity: </label>
                 <input
                   type="text"
-                  value={props.selectedProduct.availableQuantity}
+                  value={product.availableQuantity}
                   style={{ width: '70%' }}
                 />
               </div>
@@ -56,7 +54,7 @@ const OpenRequest = (props) => {
                 <label>Unit: </label>
                 <input
                   type="text"
-                  value={props.selectedProduct.unit}
+                  value={product.unit}
                   style={{ marginLeft: '40px', width: '68%' }}
                 />
               </div>
@@ -64,7 +62,7 @@ const OpenRequest = (props) => {
                 <label>Quality: </label>
                 <input
                   type="text"
-                  value={props.selectedProduct.quality}
+                  value={product.quality}
                   style={{ marginLeft: '32px', width: '68%' }}
                 />
               </div>
@@ -72,7 +70,7 @@ const OpenRequest = (props) => {
                 <label>Price/Unit : </label>
                 <input
                   type="text"
-                  value={props.selectedProduct.price}
+                  value={product.price}
                   style={{ marginLeft: '40px', width: '68%' }}
                 />
               </div>
@@ -80,7 +78,7 @@ const OpenRequest = (props) => {
                 <div className="selectedProductDesription">
                 <div className="OpenRequestFormGroupHeader">Description: </div>
                 <div className="OpenRequestFormGroupContent">
-                  {props.selectedProduct.description}
+                  {product.description}
                 </div>
                 </div>
               </div>

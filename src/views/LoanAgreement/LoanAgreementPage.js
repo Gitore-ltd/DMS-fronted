@@ -14,8 +14,14 @@ const LoanAgreementPage = (props) => {
   const [LoanQuantity, setLoanQuantity] = useState(0);
   const [selectedPaymentDate, setSelectedPaymentDate] = useState('');
   const [todaysDate, setTodaysDate] = useState( moment().format('YYYY-MM-DD').toString());
-  
-  
+
+  const queryParms = props.history.location.search;
+
+  const [product, setProduct] = useState({
+    ...qs.parse(queryParms.replace('?', '')),
+  });
+
+    
   useEffect(() => {
     async function fetchUserProfile() {
       const userToken = localStorage.getItem('user-token');
@@ -39,12 +45,12 @@ const LoanAgreementPage = (props) => {
     requester: `${userProfile.firstName}`,
     nationalId: userProfile.nationalId,
     phoneNumber: userProfile.telephone,
-    requestedProductId: props.selectedProduct.productId,
-    title: props.selectedProduct.title,
-    price: props.selectedProduct.price,
-    quality: props.selectedProduct.quality,
+    requestedProductId: product.productId,
+    title: product.title,
+    price: product.price,
+    quality: product.quality,
     quantity: LoanQuantity * 1,
-    total: LoanQuantity * props.selectedProduct.price,
+    total: LoanQuantity * product.price,
     requestedDate: todaysDate,
     tobePayed: selectedPaymentDate
   }
@@ -119,7 +125,7 @@ const LoanAgreementPage = (props) => {
                 <div className="InputContainer">
                   <input
                     name="firstname"
-                    value={props.selectedProduct.title}
+                    value={product.title}
                   />
                 </div>
               </div>
@@ -132,7 +138,7 @@ const LoanAgreementPage = (props) => {
                 <div className="InputContainer">
                   <input
                     name="firstname"
-                    value={props.selectedProduct.price}
+                    value={product.price}
                   />
                 </div>
               </div>
@@ -159,7 +165,7 @@ const LoanAgreementPage = (props) => {
                 <div className="InputContainer">
                   <input
                     name="firstname"
-                    value={LoanQuantity * props.selectedProduct.price}
+                    value={LoanQuantity * product.price}
                   />
                 </div>
               </div>

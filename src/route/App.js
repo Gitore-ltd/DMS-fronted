@@ -10,10 +10,11 @@ import ViewOneProduct from '../views/viewOneProduct/viewOneProduct';
 import LoanAgreement from '../views/LoanAgreement/LoanAgreementPage';
 import Loans from '../views/viewMyLoans/Loans';
 import Pay from '../views/Pay';
-import Seller from '../views/Seller';
+import Seller from '../views/sellerView/seller';
 import AddProduct from '../views/addProduct/AddProduct';
 import ViewRequest from '../views/ViewRequest';
 import OpenRequest from '../views/OpenRequest';
+import requestManipulation from '../views/requestManipulation/requestManipulation';
 import classes from './App.css';
 
 const App = () => (
@@ -35,6 +36,7 @@ const App = () => (
         <Route path="/viewrequest" exact component={ViewRequest} />
         <Route path="/openrequest" exact component={OpenRequest} />
         <Route path="/viewoneproduct" exact component={ViewOneProduct} />
+        <Route path="/requestManipulation" exact component={requestManipulation} />
       </Switch>
     </BrowserRouter>
   </div>

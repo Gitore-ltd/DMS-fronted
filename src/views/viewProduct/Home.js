@@ -26,7 +26,10 @@ const Home = (props) => {
 
     props.updateSelectedProduct(product);
 
-    props.history.push('/viewoneproduct');
+    props.history.push({
+      pathname: '/viewoneproduct',
+      search: qs.stringify(product)
+    });
   };
 
   return (

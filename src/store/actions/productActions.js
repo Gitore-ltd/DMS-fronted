@@ -32,6 +32,13 @@ export const updateSelectedProduct = (selectedProduct) => (dispatch) => {
   });
 }
 
+export const selectedRequest = (selectedReqInfo) => (dispatch) => {
+  return  dispatch({
+    type: types.REQUEST_SELECTED,
+    payload: selectedReqInfo,
+  });
+}
+
 
 
 export const addProduct = (product) => async (dispatch) => {
