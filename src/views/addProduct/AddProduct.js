@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import { connect } from "react-redux";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faImage } from "@fortawesome/free-solid-svg-icons";
 import Navbar from "../../components/Navbar";
 import "./AddProduct.css";
 import NoImg from "../../assets/images/no-image.png";
@@ -7,19 +9,17 @@ import { addProduct } from "../../store/actions/productActions";
 import ReactFileReader from "react-file-reader";
 
 const AddContact = (props) => {
-  const [productImage, setProductImage] = useState(null);
+  const [productImage, setProductImage] = useState('');
   const [title, setTitle] = useState("");
   const [quality, setQuality] = useState(0);
   const [quantity, setQuantity] = useState(1);
   const [unit, setUnit] = useState("Kg");
   const [price, setPrice] = useState(0);
+  const [loading, setLoading] = useState(true);
+  const [imageProduct, setImageProduct] = useState("");
 
   const handleAddProduct = async (e) => {
     e.preventDefault();
-
-    const formData = new FormData();
-    formData.append("image", productImage);
-    formData.append("upload_preset", "sa2wd4gq");
     const product = {
       title,
       quality,
@@ -27,12 +27,27 @@ const AddContact = (props) => {
       unit,
       price,
       description: "N/A",
-      formData,
     };
     await props.addProduct(product, props.token);
   };
-  const handleImageUpload = (files) => {
-    setProductImage(files[0]);
+  const handleImageUpload = async (e) => {
+    const files = e.target.files;
+    const data = new FormData();
+    data.append("file", files[0]);
+    data.append("upload_preset", "miv0xetk");
+    setLoading(true);
+
+    const res = await fetch(
+      "https://api.cloudinary.com/v1_1/kagororacloud/image/upload",
+      {
+        method: "POST",
+        body: data,
+      }
+    );
+
+    const file = await res.json();
+    setProductImage(file.secure_url);
+    setLoading(false);
   };
   const profile = {
     image: "",
@@ -43,16 +58,19 @@ const AddContact = (props) => {
       <Navbar profile={profile} />
       <div className="add-product">
         <div className="add-product-image">
-          <form>
             <div className="image-box">
-              <img src={NoImg} alt="" />
-              <ReactFileReader handleFiles={handleImageUpload}>
-                <label className="btn-upload" for="file">
-                  <i className="fa fa-upload" aria-hidden="true"></i> Upload
-                </label>
-              </ReactFileReader>
-            </div>
+          <form>
+                        {loading ? (
+                   <img src={NoImg} className='productImageHolder' alt="" />
+                ) : (
+                    <img
+                      className = 'productImageHolder'
+                      src={productImage}
+                    />
+                  )}
+                  <input type="file" className="updateProductImagePic" onChange={handleImageUpload} />
           </form>
+            </div>
         </div>
         <div className="add-product-details text-muted">
           <div className="row">
@@ -94,6 +112,7 @@ const AddContact = (props) => {
                   >
                     <option value="Kg">Kg</option>
                     <option value="Little">Little</option>
+                    <option value={title}>{title}</option>
                   </select>
                 </div>
               </div>
