@@ -26,6 +26,8 @@ const Login = (props) => {
       // console.log('userRole', userRole);
       if (userRole === 'customer') {
         props.history.push('/home');
+      } else if (userRole === 'superAdmin') {
+        props.history.push('/admin');
       } else {
         props.history.push('/seller');
       }

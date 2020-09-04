@@ -23,7 +23,6 @@ const Loans = (props) => {
       );
       const Allrequests = await res.json();
       setRequests(Allrequests.allRequest);
-      console.log(requests);
     }
     fetchAllRequests();
   });

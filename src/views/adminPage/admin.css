@@ -1,0 +1,287 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+
+.adminContainer {
+  height: 100vh;
+  width: 100%;
+}
+
+.adminContent {
+  height: 90vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.admin {
+  height: 80%;
+  width: 60%;
+  display: flex;
+  justify-content: center;
+  display: inline-block !important;
+}
+
+.tableHeader {
+  height: 12%;
+  width: 100%;
+  background-color: #ffffff;
+  border: 1px solid #c4c4c4;
+  padding: 0 15px;
+  border-radius: 12px;
+}
+
+.tableHeader ul li {
+  display: inline-block;
+  /* margin-left: 10%; */
+  line-height: 8.7vh;
+  font-size: 14px;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  letter-spacing: 0.9px;
+  font-weight: bold;
+}
+
+.firstNameRow {
+  height: 8.4vh;
+  width: 18%;
+}
+
+.lastNameRow {
+  height: 8.4vh;
+  width: 18%;
+}
+
+.emailRow {
+  height: 8.4vh;
+  width: 26%;
+}
+
+.telephoneRow {
+  height: 8.4vh;
+  width: 20%;
+}
+
+.roleRow {
+  height: 8.4vh;
+  width: 18%;
+}
+
+/* ==================== */
+
+.tableBody {
+  height: 9%;
+  width: 100% !important;
+  display: inline-block !important;
+  margin-top: 1rem;
+}
+
+.tableBody ul li {
+  display: inline-block;
+  line-height: 6vh;
+  font-size: 12px;
+}
+
+.firstNameRowData {
+  width: 18%;
+}
+
+.lastNameRowData {
+  width: 18%;
+}
+
+.emailRowData {
+  width: 26%;
+}
+
+.telephoneRowData {
+  width: 20%;
+}
+
+.roleRowData {
+  width: 18%;
+}
+
+.userTableRows {
+  background-color: #ffffff;
+  border: 1px solid #c4c4c4;
+  padding: 0 15px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+/* #Modal{
+  height: 30vh;
+  width: 100%;
+  background-color: brown;
+} */
+
+.ModalHeader {
+  height: 8vh;
+  background-color: #eeeeee;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ModalHeader h1 {
+  font-size: 20px;
+}
+
+.modalContent {
+  height: 60vh;
+  width: 100%;
+  background-color: #eeeeee;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modalSubContent {
+  height: 50vh;
+  width: 100%;
+  background-color: #eeeeee;
+}
+
+.roleUpdateLeft {
+  float: left;
+  height: 40vh;
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.roleUpdateLeft img {
+  height: 200px;
+  width: 200px;
+}
+
+.roleUpdateRight {
+  float: right;
+  height: 40vh;
+  width: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+}
+
+.roleUpdateRightContent {
+  height: 37vh;
+  width: 90%;
+}
+
+.modalContent form {
+  width: 100%;
+  height: 100%;
+}
+
+.roleUpdateRight .row {
+  height: 1.5rem;
+  width: 100%;
+  margin: 10px 0;
+  /* margin-bottom: 10px; */
+}
+
+.roleUpdateRight .row input {
+  width: 100%;
+  font-size: 11px;
+  background-color: transparent;
+  border-top: 0;
+  border-left: 0;
+  border-right: 0;
+  border-bottom: 0;
+}
+
+.roleUpdateButtons {
+  width: 100%;
+  height: 10vh;
+}
+
+.roleUpdateButtons button {
+  width: 220px;
+  height: 2rem;
+  margin: 1rem 0.4rem;
+  border: none;
+  border-radius: 4px;
+
+  font-size: 11px;
+  font-family: 'Roboto', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-weight: 900;
+  box-shadow: 2px 12px 20px rgba(0, 0, 0, 0.15);
+  transition: all 0.3s ease 0s;
+  cursor: pointer;
+  outline: none;
+  text-decoration: none;
+  text-align: center;
+  list-style: none;
+}
+
+.updateRoleBtn {
+  background-color: #39a3d1;
+  color: #e8eff1;
+}
+
+.deleteUserBtn {
+  background-color: #ed5e68;
+  color: #eee7e8;
+}
+
+.updateRoleRow {
+  height: 7vh;
+  width: 100%;
+  margin-bottom: 1rem;
+}
+
+.updateRoleRow label {
+  width: 13px;
+  float: left;
+  margin-left: 5rem;
+  line-height: 7vh;
+}
+.updateRoleRow select {
+  width: 15rem;
+  height: 5vh;
+  margin-right: 5rem;
+  float: right;
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+#updateRoleRowButton{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.updateRoleRow button{
+  width: 310px;
+  height: 2rem;
+  margin: 1rem 0.4rem;
+  border: none;
+  border-radius: 4px;
+
+  font-size: 11px;
+  font-family: 'Roboto', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-weight: 900;
+  box-shadow: 2px 12px 20px rgba(0, 0, 0, 0.15);
+  transition: all 0.3s ease 0s;
+  cursor: pointer;
+  outline: none;
+  text-decoration: none;
+  text-align: center;
+  list-style: none;
+  background-color: #39a3d1;
+  color: #e8eff1;
+}
+
+.updateRoleRow select{
+  border-radius: 3px;
+  border-color: rgba(0, 0, 0, 0.15);
+  padding: 0 5px;
+}
