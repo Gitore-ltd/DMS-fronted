@@ -152,6 +152,7 @@
   align-items: center;
 }
 
+
 .roleUpdateLeft img {
   height: 200px;
   width: 200px;
@@ -284,4 +285,68 @@
   border-radius: 3px;
   border-color: rgba(0, 0, 0, 0.15);
   padding: 0 5px;
+}
+
+.updateRoleModelContent p{
+  text-align: center;
+}
+
+.deleteUser_btn{
+  width: 200px;
+  height: 2rem;
+  margin: 1rem 0.4rem;
+  border: none;
+  border-radius: 4px;
+
+  font-size: 11px;
+  font-family: 'Roboto', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-weight: 900;
+  box-shadow: 2px 12px 20px rgba(0, 0, 0, 0.15);
+  transition: all 0.3s ease 0s;
+  cursor: pointer;
+  outline: none;
+  text-decoration: none;
+  text-align: center;
+  list-style: none;
+  background-color: #ed5e68;
+  color: #e8eff1;
+}
+
+.cancelDeleteUser_btn{
+  width: 200px;
+  height: 2rem;
+  margin: 1rem 0.4rem;
+  border: none;
+  border-radius: 4px;
+
+  font-size: 11px;
+  font-family: 'Roboto', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-weight: 900;
+  box-shadow: 2px 12px 20px rgba(0, 0, 0, 0.15);
+  transition: all 0.3s ease 0s;
+  cursor: pointer;
+  outline: none;
+  text-decoration: none;
+  text-align: center;
+  list-style: none;
+  background-color: #2f2f2fcd;
+  color: #e8eff1;
+}
+
+/* .deleteModelHeader {
+  text-align: center;
+  background-color: black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+} */
+
+.deleteModelHeader h3{
+  position: absolute;
+  color: #ca787e;
+  text-align: center;
 }
