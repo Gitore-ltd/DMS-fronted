@@ -5,17 +5,22 @@ import Modal from 'react-bootstrap/Modal';
 import { Table, Form } from 'react-bootstrap';
 import './admin.css';
 import NavAdmin from '../../components/adminNavarBar';
+import NoImg from '../../assets/images/no-image.png';
 
 const Admin = () => {
   const [users, setUsers] = useState([]);
   const [showModal, setShowModal] = useState(false);
   const [showModalRole, setShowModalRole] = useState(false);
+  const [showModalDelete, setShowModalDelete] = useState(false);
   const [term, setTerm] = useState();
   const [userInfo, setUserInfo] = useState({});
   const [roles, setRoles] = useState(['seller', 'customer', 'superAdmin']);
   const [role, setRole] = useState('');
   const [isUpdate, setIsUpdate] = useState(false);
+  const [isDeleted, setIsDeleted] = useState(false);
   const [token, setToken] = useState('');
+  const [userImage, setUserImage] = useState('');
+  const [emptyImage, setEmptyImage] = useState('no image found');
 
   useEffect(async () => {
     const userToken = localStorage.getItem('user-token');
@@ -34,24 +39,6 @@ const Admin = () => {
     setUsers(user.findAllUsers);
   }, []);
 
-  // useEffect(async () => {
-  //  if(update){
-  //   const userToken = localStorage.getItem('user-token');
-  //   const res = await fetch(
-  //     `https://debt-management-system.herokuapp.com/api/v1/findAll`,
-  //     {
-  //       method: 'GET',
-  //       headers: {
-  //         'content-type': 'application/json',
-  //         token: userToken,
-  //       },
-  //     }
-  //   );
-  //   const user = await res.json();
-  //   setUsers(user.findAllUsers);
-  //  }
-  // }, [update]);
-
   const handleClose = () => {
     setShowModal(false);
   };
@@ -67,6 +54,13 @@ const Admin = () => {
   const handleShowRole = () => {
     setShowModalRole(true);
   };
+  const handleCloseDelete = () => {
+    setShowModalDelete(false);
+  };
+
+  const handleShowDelete = () => {
+    setShowModalDelete(true);
+  };
 
   const handleSelectedRole = (e) => {
     e.preventDefault();
@@ -74,6 +68,7 @@ const Admin = () => {
   };
 
   const handleClick = (email) => {
+    setUserImage(userInfo.profileImage);
     const userEmail = email;
     async function fetchUserProfile() {
       const userToken = localStorage.getItem('user-token');
@@ -139,6 +134,47 @@ const Admin = () => {
 
   updateUsersTable(isUpdate, token);
 
+  const deleteUser = async (e) => {
+    e.preventDefault();
+    const userToken = localStorage.getItem('user-token');
+    const res = await fetch(
+      `https://debt-management-system.herokuapp.com/api/v1/deleteUser`,
+      {
+        method: 'DELETE',
+        headers: {
+          'content-type': 'application/json',
+          token: userToken,
+          email: userInfo.email,
+        },
+      }
+    );
+    const user = await res.json();
+    setIsDeleted(true);
+    if (user.status === 200) {
+      toast.success(user.message);
+    }
+    toast.error(user.error);
+  };
+
+  const updateUsersTableOnDelete = async (onDelete, userToken) => {
+    if (onDelete) {
+      const res = await fetch(
+        `https://debt-management-system.herokuapp.com/api/v1/findAll`,
+        {
+          method: 'GET',
+          headers: {
+            'content-type': 'application/json',
+            token: userToken,
+          },
+        }
+      );
+      const user = await res.json();
+      setUsers(user.findAllUsers);
+    }
+  };
+
+  updateUsersTableOnDelete(isDeleted, token);
+
   return (
     <div className="adminContainer">
       <NavAdmin />
@@ -184,7 +220,14 @@ const Admin = () => {
               <div className="modalSubContent">
                 <form>
                   <div className="roleUpdateLeft">
-                    <img src={userInfo.profileImage}></img>
+                    {/* <img src={userInfo.profileImage} /> */}
+                    {userImage === undefined ||
+                    !userImage ||
+                    userImage === emptyImage ? (
+                      <img src={NoImg} alt="" />
+                    ) : (
+                      <img src={userInfo.profileImage} />
+                    )}
                   </div>
                   <div className="roleUpdateRight">
                     <div className="roleUpdateRightContent">
@@ -230,7 +273,16 @@ const Admin = () => {
                     >
                       UPDATE ROLE
                     </button>
-                    <button className="deleteUserBtn">DELETE USER</button>
+                    <button
+                      type="button"
+                      className="deleteUserBtn"
+                      onClick={() => {
+                        handleClose();
+                        handleShowDelete();
+                      }}
+                    >
+                      DELETE USER
+                    </button>
                   </div>
                 </form>
               </div>
@@ -255,6 +307,39 @@ const Admin = () => {
                   </div>
                   <div className="updateRoleRow" id="updateRoleRowButton">
                     <button onClick={updateRole}>UPDATE</button>
+                  </div>
+                </form>
+              </div>
+            </Modal.Body>
+          </Modal>
+          {/* ================================== *********** ====================================== */}
+
+          {/* ================================ DELETE CONFIRMATION ====================================== */}
+          <Modal show={showModalDelete} onHide={handleCloseDelete} centered>
+            <Modal.Header className="deleteModelHeader" closeButton>
+              <h3>Attention</h3>
+            </Modal.Header>
+            <Modal.Body>
+              <div className="updateRoleModelContent">
+                <form>
+                  <div>
+                    <p>Are your sure you want to delete this user?</p>
+                  </div>
+                  <div>
+                    <button
+                      type="button"
+                      className="deleteUser_btn"
+                      onClick={deleteUser}
+                    >
+                      DELETE
+                    </button>
+                    <button
+                      type="button"
+                      className="cancelDeleteUser_btn"
+                      onClick={handleCloseDelete}
+                    >
+                      CANCEL
+                    </button>
                   </div>
                 </form>
               </div>

@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import Logo from "../assets/images/mainlogo.png";
 import UserAvatar from "../assets/images/avatar.png";
 import DropDown from "../components/DropDown";
-import "../assets/styles/components/Navbar.css";
+import "../assets/styles/components/adminNavBar.css";
 
 const NavAdmin = (props) => {
   const [userProfile, setUserProfile] = useState({});
@@ -39,15 +39,15 @@ const NavAdmin = (props) => {
 
   return (
     <>
-      <div className="navbar">
-      <div className="navbarLeft">
+      <div className="navbarAdmin">
+      <div className="navbarLeftAdmin">
       <div className="logo">
           <Link to="/home">
             <img src={Logo} alt="DMS" />
           </Link>
         </div>
       </div>
-      <div className="navbarRight">
+      <div className="navbarRightAdmin">
         <div id="top-menu-avatar" onClick={showMenu}>
           <div className="user-name">{userProfile.firstName} {userProfile.lastName}</div>
           <img className="user-avatar" src={UserAvatar} alt="" />
