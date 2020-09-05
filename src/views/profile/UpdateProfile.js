@@ -163,12 +163,6 @@ const UpdateProfile = (props) => {
                   class="form-control"
                   onChange={(e) => (setDateOfBirth(e.target.value))}
                   value = { moment(userProfile.dateOfBirth).format('YYYY-MM-DD') ? (dateOfBirth === 'undefined') : dateOfBirth}
-                  // value={ moment(userProfile.dateOfBirth).format('YYYY-MM-DD') }
-                  
-                  // value = {`${{dateOfBirth}}` ? dateOfBirth : moment(userProfile.dateOfBirth).format('YYYY-MM-DD')}
-                  // value = {moment(userProfile.dateOfBirth).format('YYYY-MM-DD') ?}
-                  // const DOB = {moment(userProfile.dateOfBirth).format('YYYY-MM-DD')}
-                  // value = {`${{dateOfBirth}}` ? dateOfBirth : dateOfB }
                 />
               </div>
 
