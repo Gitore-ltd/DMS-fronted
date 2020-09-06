@@ -350,3 +350,28 @@
   color: #ca787e;
   text-align: center;
 }
+
+.searchContainer{
+  height: 3rem;
+  margin-bottom: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.searchContainer input{
+  height: 2.5rem;
+  width: 60%;
+  border: 1px solid rgb(194, 194, 194);
+  border-radius: 50px;
+  font-size: 12px;
+  padding-left: 3rem;
+}
+
+.searchContainer i{
+    position: absolute; 
+    left: 180px; 
+    /* top: 40px;  */
+    color: gray; 
+}
