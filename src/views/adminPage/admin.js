@@ -12,7 +12,7 @@ const Admin = () => {
   const [showModal, setShowModal] = useState(false);
   const [showModalRole, setShowModalRole] = useState(false);
   const [showModalDelete, setShowModalDelete] = useState(false);
-  const [term, setTerm] = useState();
+  const [term, setTerm] = useState("");
   const [userInfo, setUserInfo] = useState({});
   const [roles, setRoles] = useState(['seller', 'customer', 'superAdmin']);
   const [role, setRole] = useState('');
@@ -21,7 +21,7 @@ const Admin = () => {
   const [token, setToken] = useState('');
   const [userImage, setUserImage] = useState('');
   const [emptyImage, setEmptyImage] = useState('no image found');
-
+ 
   useEffect(async () => {
     const userToken = localStorage.getItem('user-token');
     setToken(userToken);
@@ -175,11 +175,26 @@ const Admin = () => {
 
   updateUsersTableOnDelete(isDeleted, token);
 
+  const handleSearch = (e) => {
+    e.preventDefault();
+    setTerm(e.target.value);
+  };
+
+  const searchFor = (keyWord) => (user) =>
+    user.firstName.toLowerCase().includes(keyWord.toLowerCase()) ||
+    user.lastName.toLowerCase().includes(keyWord.toLowerCase()) ||
+    user.email.toLowerCase().includes(keyWord.toLowerCase()) ||
+    !keyWord;
+
   return (
     <div className="adminContainer">
       <NavAdmin />
       <div className="adminContent">
         <div className="admin">
+          <div className="searchContainer">
+            <input placeholder="enter name or email" onChange={handleSearch} />
+            <i className="fa fa-search"></i>
+          </div>
           <div className="tableHeader">
             <ul>
               <li className="firstNameRow">FIRSTNAME</li>
@@ -191,8 +206,8 @@ const Admin = () => {
           </div>
 
           <div className="tableBody">
-            {users
-              ? users.map((user, id) => (
+                 {users
+                     ? users.filter(searchFor(term)).map((user, id) => (
                   <ul
                     key={id}
                     className="userTableRows"
@@ -210,8 +225,6 @@ const Admin = () => {
                 ))
               : null}
           </div>
-
-          {/* =========================================== Model view user Info ========================================== */}
           <Modal id="Modal" show={showModal} onHide={handleClose} centered>
             <Modal.Header className="ModalHeader" closeButton>
               <h1>Users Information</h1>
@@ -220,7 +233,6 @@ const Admin = () => {
               <div className="modalSubContent">
                 <form>
                   <div className="roleUpdateLeft">
-                    {/* <img src={userInfo.profileImage} /> */}
                     {userImage === undefined ||
                     !userImage ||
                     userImage === emptyImage ? (
