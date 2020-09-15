@@ -72,7 +72,7 @@ const SellerNavBar = (props) => {
         </div>
         <div id="top-menu-avatar" onClick={showMenu}>
           <div className="user-name">{userProfile.firstName} {userProfile.lastName}</div>
-          <img className="user-avatar" src={UserAvatar} alt="" />
+          <img className="user-avatar" src={userProfile.profileImage} alt="" />
           <i className="fa fa-caret-down" aria-hidden="true"></i>
           <DropDown classes={classes} />
         </div>
