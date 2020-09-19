@@ -181,8 +181,9 @@ const Admin = () => {
   };
 
   const searchFor = (keyWord) => (user) =>
-    user.firstName.toLowerCase().includes(keyWord.toLowerCase()) ||
-    user.lastName.toLowerCase().includes(keyWord.toLowerCase()) ||
+    // user.firstName.toLowerCase().includes(keyWord.toLowerCase()) ||
+    // user.lastName.toLowerCase().includes(keyWord.toLowerCase()) ||
+    user.role.toLowerCase().includes(keyWord.toLowerCase()) ||
     user.email.toLowerCase().includes(keyWord.toLowerCase()) ||
     !keyWord;
 
