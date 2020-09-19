@@ -3,12 +3,16 @@ import React, { useEffect, useState } from 'react';
 import qs from 'qs';
 import { connect } from 'react-redux';
 import Navbar from '../../components/Navbar';
+import NavbarSeller from '../../components/SellerNavBar';
 import ProductBox from '../../components/ProductBox';
 import './Home.css';
 import { getProducts, updateSelectedProduct } from '../../store/actions/productActions';
 import Spinner from '../../components/Spinner/Spinner';
 
 const Home = (props) => {
+
+  const [userRole, setUserRole] = useState('');
+
   useEffect(() => {
     async function fetchProducts() {
       await props.getProducts(
@@ -17,6 +21,28 @@ const Home = (props) => {
     }
     fetchProducts();
   }, []);
+
+
+  useEffect(() => {
+    async function fetchUserProfile() {
+      // const dateOfB = moment(userProfile.dateOfBirth).format('YYYY-MM-DD');
+      const userToken = localStorage.getItem('user-token');
+      const res = await fetch(
+        `https://debt-management-system.herokuapp.com/api/v1/getProfile`,
+        {
+          method: 'GET',
+          headers: {
+            'content-type': 'application/json',
+            token: userToken,
+          },
+        }
+      );
+      const user = await res.json();
+      setUserRole(user.user.role);
+    }
+    fetchUserProfile();
+  }, []);
+
   const profile = {
     image: '',
     username: 'n-one',
@@ -34,7 +60,8 @@ const Home = (props) => {
 
   return (
     <div>
-      <Navbar profile={profile} />
+      {/* <Navbar profile={profile} /> */}
+      {userRole === 'seller' ? <NavbarSeller /> : <Navbar profile={profile} />}
       <div className="content">
         <div className="search-box">
           <form>

@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import './profilePage.css';
 import moment from 'moment';
 import Navbar from '../../components/Navbar';
+import NavbarSeller from '../../components/SellerNavBar';
+import NavbarAdmin from '../../components/adminNavarBar';
 import Form from 'react-bootstrap/Form';
 import Col from 'react-bootstrap/Col';
 import { toast } from 'react-toastify';
@@ -25,6 +27,7 @@ const UpdateProfile = (props) => {
   const [loading, setLoading] = useState(false);
   const [jwtToken, setJwtToken] = useState(localStorage.getItem('user-token'));
   const [isUpdate, setIsUpdate] = useState(false);
+  const [userRole, setUserRole] = useState('');
   // const [dateOfB, setDateOfB] = useState();
 
   useEffect(() => {
@@ -44,6 +47,7 @@ const UpdateProfile = (props) => {
       const user = await res.json();
       setUserProfile(user.user);
       setProfileImage(user.user.profileImage);
+      setUserRole(user.user.role);
     }
     fetchUserProfile();
   }, []);
@@ -95,7 +99,13 @@ const UpdateProfile = (props) => {
 
   return (
     <div className="Profilecontainer">
-      <Navbar />
+      {userRole === 'seller' ? (
+        <NavbarSeller />
+      ) : userRole === 'superAdmin' ? (
+        <NavbarAdmin />
+      ) : (
+        <Navbar />
+      )}
       <div className="ProfileSide">
         <div className="ProfileSideContainer">
           <div className="ProfileSideContainerLeft">
