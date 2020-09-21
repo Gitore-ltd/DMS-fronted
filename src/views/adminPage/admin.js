@@ -12,16 +12,18 @@ const Admin = () => {
   const [showModal, setShowModal] = useState(false);
   const [showModalRole, setShowModalRole] = useState(false);
   const [showModalDelete, setShowModalDelete] = useState(false);
-  const [term, setTerm] = useState("");
+  const [term, setTerm] = useState('');
   const [userInfo, setUserInfo] = useState({});
   const [roles, setRoles] = useState(['seller', 'customer', 'superAdmin']);
+  const [initialRole, setInitialRole] = useState('');
+  const [newRoles, setNewRoles] = useState([]);
   const [role, setRole] = useState('');
   const [isUpdate, setIsUpdate] = useState(false);
   const [isDeleted, setIsDeleted] = useState(false);
   const [token, setToken] = useState('');
   const [userImage, setUserImage] = useState('');
   const [emptyImage, setEmptyImage] = useState('no image found');
- 
+
   useEffect(async () => {
     const userToken = localStorage.getItem('user-token');
     setToken(userToken);
@@ -38,6 +40,18 @@ const Admin = () => {
     const user = await res.json();
     setUsers(user.findAllUsers);
   }, []);
+
+  useEffect(() => {
+    let i = 0;
+    const length = roles.length - 1;
+    const array = [];
+    for (i = length; i >= 0; i--) {
+      if (roles[i] !== initialRole) {
+        array.push(roles[i]);
+      }
+    }
+    setNewRoles(array);
+  }, [initialRole]);
 
   const handleClose = () => {
     setShowModal(false);
@@ -85,6 +99,7 @@ const Admin = () => {
       );
       const user = await res.json();
       setUserInfo(user.userInfo);
+      setInitialRole(user.userInfo.role);
     }
     fetchUserProfile();
   };
@@ -173,19 +188,20 @@ const Admin = () => {
     }
   };
 
-  updateUsersTableOnDelete(isDeleted, token);
-
   const handleSearch = (e) => {
     e.preventDefault();
     setTerm(e.target.value);
   };
 
   const searchFor = (keyWord) => (user) =>
-    // user.firstName.toLowerCase().includes(keyWord.toLowerCase()) ||
-    // user.lastName.toLowerCase().includes(keyWord.toLowerCase()) ||
-    user.role.toLowerCase().includes(keyWord.toLowerCase()) ||
+    user.firstName.toLowerCase().includes(keyWord.toLowerCase()) ||
+    user.lastName.toLowerCase().includes(keyWord.toLowerCase()) ||
     user.email.toLowerCase().includes(keyWord.toLowerCase()) ||
+    user.role.toLowerCase().includes(keyWord.toLowerCase()) ||
     !keyWord;
+
+
+  updateUsersTableOnDelete(isDeleted, token);
 
   return (
     <div className="adminContainer">
@@ -207,14 +223,15 @@ const Admin = () => {
           </div>
 
           <div className="tableBody">
-                 {users
-                     ? users.filter(searchFor(term)).map((user, id) => (
+            {users
+              ? users.filter(searchFor(term)).map((user, id) => (
                   <ul
                     key={id}
                     className="userTableRows"
                     onClick={() => {
                       handleShow();
                       handleClick(user.email);
+                      setInitialRole(user.role);
                     }}
                   >
                     <li className="firstNameRowData">{user.firstName}</li>
@@ -312,8 +329,16 @@ const Admin = () => {
                 <form as="select" onChange={handleSelectedRole}>
                   <div className="updateRoleRow">
                     <label>Role</label>
-                    <select>
+                    {/* <select>
                       {roles.map((role) => (
+                        <option>{role}</option>
+                      ))}
+                    </select> */}
+                    <select>
+                      <option value="" disabled selected>
+                        Select your option
+                      </option>
+                      {newRoles.map((role) => (
                         <option>{role}</option>
                       ))}
                     </select>

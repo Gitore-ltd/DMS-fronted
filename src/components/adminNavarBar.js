@@ -1,21 +1,19 @@
 import React, { useState, useEffect } from 'react';
-import Bell from "./Bell";
-import { Link } from "react-router-dom";
-import Logo from "../assets/images/mainlogo.png";
-import UserAvatar from "../assets/images/avatar.png";
-import DropDown from "../components/DropDown";
-import "../assets/styles/components/adminNavBar.css";
+import { Link } from 'react-router-dom';
+import Logo from '../assets/images/mainlogo.png';
+import DropDown from '../components/DropDown';
+import '../assets/styles/components/adminNavBar.css';
 
 const NavAdmin = (props) => {
   const [userProfile, setUserProfile] = useState({});
-  const token = "A";
+  const token = 'A';
   const [toggleMenu, setToggleMenu] = useState(false);
   const showMenu = () => {
     setToggleMenu(!toggleMenu);
   };
-  const classes = ["drop-down"];
+  const classes = ['drop-down'];
   if (toggleMenu) {
-    classes.push("show");
+    classes.push('show');
   }
 
   useEffect(() => {
@@ -30,35 +28,40 @@ const NavAdmin = (props) => {
             token: userToken,
           },
         }
-        );
-        const user = await res.json();
-        setUserProfile(user.user);
-      }
-      fetchUserProfile();
-    },[]);
+      );
+      const user = await res.json();
+      setUserProfile(user.user);
+    }
+    fetchUserProfile();
+  }, []);
 
   return (
     <>
       <div className="navbarAdmin">
-      <div className="navbarLeftAdmin">
-      <div className="logo">
-          <Link to="/admin">
-            <img src={Logo} alt="DMS" />
-          </Link>
+        <div className="navbarLeftAdmin">
+          <div className="logo">
+            <Link to="/admin">
+              <img src={Logo} alt="DMS" />
+            </Link>
+          </div>
         </div>
-      </div>
-      <div className="navbarRightAdmin">
-        <div id="top-menu-avatar" onClick={showMenu}>
-          <div className="user-name">{userProfile.firstName} {userProfile.lastName}</div>
-          <img className="user-avatar" src={userProfile.profileImage} alt="" />
-          <i className="fa fa-caret-down" aria-hidden="true"></i>
-          <DropDown classes={classes} />
+        <div className="navbarRightAdmin">
+          <div id="top-menu-avatar" onClick={showMenu}>
+            <div className="user-name">
+              {userProfile.firstName} {userProfile.lastName}
+            </div>
+            <img
+              className="user-avatar"
+              src={userProfile.profileImage}
+              alt=""
+            />
+            <i className="fa fa-caret-down" aria-hidden="true"></i>
+            <DropDown classes={classes} />
+          </div>
         </div>
-      </div>
       </div>
     </>
   );
 };
 
 export default NavAdmin;
-
