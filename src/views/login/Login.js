@@ -34,6 +34,23 @@ const Login = (props) => {
     }
   };
 
+  const handleClickGmail = async () => {
+    window.open(
+      'https://debt-management-system.herokuapp.com/auth/login/google',
+      '_blank'
+    );
+    // const res = await fetch(
+    //   `https://debt-management-system.herokuapp.com/auth/login/google`,
+    //   {
+    //     method: 'GET',
+    //     headers: {
+    //       'Content-Type': 'application/json',
+    //       'Access-Control-Allow-Origin': '*',
+    //     },
+    //   }
+    // );
+  };
+
   return (
     <div className="loginContainer">
       <LeftSide />
@@ -42,7 +59,7 @@ const Login = (props) => {
           <form onSubmit={handleSubmit}>
             <h1>Login</h1>
             <div className="loginSocials">
-              <span className="loginGmail">
+              <span className="loginGmail" onClick={handleClickGmail}>
                 <FcGoogle className="GmailIcon" />
                 Login with Gmail
               </span>
