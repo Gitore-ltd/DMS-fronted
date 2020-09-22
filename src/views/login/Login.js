@@ -39,16 +39,6 @@ const Login = (props) => {
       'https://debt-management-system.herokuapp.com/auth/login/google',
       '_blank'
     );
-    // const res = await fetch(
-    //   `https://debt-management-system.herokuapp.com/auth/login/google`,
-    //   {
-    //     method: 'GET',
-    //     headers: {
-    //       'Content-Type': 'application/json',
-    //       'Access-Control-Allow-Origin': '*',
-    //     },
-    //   }
-    // );
   };
 
   return (
