@@ -13,11 +13,7 @@ const SocialLogin = (props) => {
     setIsLoading(false);
   }, [isLoading]);
 
-  console.log('!!!!!!!!!!!!!!!!', isLoading);
-  console.log('!!!!!!!!!!!!!!!!', token);
-
   if (isLoading) return <h1>redicting......</h1>;
-  //   isLoading === true ? <h1>redicting......</h1> : <Redirect to="/home" />;
   if (!isLoading) return <Redirect to="/home" />;
 };
 
