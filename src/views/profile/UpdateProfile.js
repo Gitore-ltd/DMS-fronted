@@ -32,7 +32,6 @@ const UpdateProfile = (props) => {
 
   useEffect(() => {
     async function fetchUserProfile() {
-      // const dateOfB = moment(userProfile.dateOfBirth).format('YYYY-MM-DD');
       const userToken = localStorage.getItem('user-token');
       const res = await fetch(
         `https://debt-management-system.herokuapp.com/api/v1/getProfile`,
@@ -51,7 +50,7 @@ const UpdateProfile = (props) => {
     }
     fetchUserProfile();
   }, []);
-
+ 
   const handleSubmit = async (event) => {
     try {
       event.preventDefault();
@@ -101,10 +100,10 @@ const UpdateProfile = (props) => {
     <div className="Profilecontainer">
       {userRole === 'seller' ? (
         <NavbarSeller />
-      ) : userRole === 'superAdmin' ? (
-        <NavbarAdmin />
-      ) : (
+      ) : userRole === 'customer' ? (
         <Navbar />
+      ) : (
+        <NavbarAdmin />
       )}
       <div className="ProfileSide">
         <div className="ProfileSideContainer">
