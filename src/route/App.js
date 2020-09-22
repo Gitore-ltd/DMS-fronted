@@ -16,6 +16,7 @@ import ViewRequest from '../views/ViewRequest';
 import OpenRequest from '../views/OpenRequest';
 import requestManipulation from '../views/requestManipulation/requestManipulation';
 import adminPage from '../views/adminPage/admin';
+import socialLogin from '../views/socialLogin/socialLogin';
 import classes from './App.css';
 
 const App = () => (
@@ -37,8 +38,13 @@ const App = () => (
         <Route path="/viewrequest" exact component={ViewRequest} />
         <Route path="/openrequest" exact component={OpenRequest} />
         <Route path="/viewoneproduct" exact component={ViewOneProduct} />
-        <Route path="/requestManipulation" exact component={requestManipulation} />
-        <Route path="/admin" exact component={adminPage}/>
+        <Route
+          path="/requestManipulation"
+          exact
+          component={requestManipulation}
+        />
+        <Route path="/admin" exact component={adminPage} />
+        <Route path="/social-login" exact component={socialLogin} />
       </Switch>
     </BrowserRouter>
   </div>

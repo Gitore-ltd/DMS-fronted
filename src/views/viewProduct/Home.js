@@ -6,14 +6,18 @@ import Navbar from '../../components/Navbar';
 import NavbarSeller from '../../components/SellerNavBar';
 import ProductBox from '../../components/ProductBox';
 import './Home.css';
-import { getProducts, updateSelectedProduct } from '../../store/actions/productActions';
+import {
+  getProducts,
+  updateSelectedProduct,
+} from '../../store/actions/productActions';
 import Spinner from '../../components/Spinner/Spinner';
 
 const Home = (props) => {
-
   const [userRole, setUserRole] = useState('');
 
   useEffect(() => {
+    const x = qs.parse(props.location.search.replace('?', ''));
+    console.log('&&&&&&&&&&&&&&&&&&&&&&&&&&', x.token);
     async function fetchProducts() {
       await props.getProducts(
         'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImthZ29yb3JhbWF4aW1lQGdtYWlsLmNvbSIsImlhdCI6MTU5ODAwNjI5OH0.mgKJFmP3AZm1DDdjUXx29GyA0lrulX9InY5pqFFfHY0'
@@ -21,7 +25,6 @@ const Home = (props) => {
     }
     fetchProducts();
   }, []);
-
 
   useEffect(() => {
     async function fetchUserProfile() {
@@ -49,12 +52,11 @@ const Home = (props) => {
   };
 
   const handleClick = (product) => {
-
     props.updateSelectedProduct(product);
 
     props.history.push({
       pathname: '/viewoneproduct',
-      search: qs.stringify(product)
+      search: qs.stringify(product),
     });
   };
 
@@ -100,4 +102,6 @@ const mapStateToProps = (state) => ({
   products: state.products.products,
   token: state.token,
 });
-export default connect(mapStateToProps, { getProducts, updateSelectedProduct })(Home);
+export default connect(mapStateToProps, { getProducts, updateSelectedProduct })(
+  Home
+);
