@@ -14,10 +14,10 @@ import Spinner from '../../components/Spinner/Spinner';
 
 const Home = (props) => {
   const [userRole, setUserRole] = useState('');
+  const [term, setTerm] = useState('');
 
   useEffect(() => {
     const x = qs.parse(props.location.search.replace('?', ''));
-    console.log('&&&&&&&&&&&&&&&&&&&&&&&&&&', x.token);
     async function fetchProducts() {
       await props.getProducts(
         'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImthZ29yb3JhbWF4aW1lQGdtYWlsLmNvbSIsImlhdCI6MTU5ODAwNjI5OH0.mgKJFmP3AZm1DDdjUXx29GyA0lrulX9InY5pqFFfHY0'
@@ -60,6 +60,15 @@ const Home = (props) => {
     });
   };
 
+  const handleSearch = (e) => {
+    e.preventDefault();
+    setTerm(e.target.value);
+  };
+
+  const searchFor = (keyWord) => (user) =>
+  user.title.toLowerCase().includes(keyWord.toLowerCase()) ||
+  !keyWord;
+
   return (
     <div>
       {/* <Navbar profile={profile} /> */}
@@ -70,10 +79,13 @@ const Home = (props) => {
             <div className="input-group">
               <input
                 type="text"
+                id='homeSearchBtn'
                 className="form-control"
-                placeholder="Search"
+                placeholder="enter product name"
                 name="search"
+                onChange={handleSearch} 
               />
+              <i className="fa fa-search" id='homeSearchIcon'></i>
               <div className="input-group-btn">
                 <button className="btn btn-default" type="submit" />
               </div>
@@ -82,7 +94,7 @@ const Home = (props) => {
         </div>
         <div className="products-list row">
           {props.products !== undefined ? (
-            props.products.map((product) => (
+            props.products.filter(searchFor(term)).map((product) => (
               <ProductBox
                 key={product.productId}
                 product={product}

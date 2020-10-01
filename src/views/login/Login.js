@@ -41,6 +41,12 @@ const Login = (props) => {
     );
   };
 
+  const handleClickInsta = async () => {
+    window.open(
+      'https://debt-management-system.herokuapp.com/auth/login/instagram/redirect'
+    );
+  };
+
   return (
     <div className="loginContainer">
       <LeftSide />
@@ -53,10 +59,13 @@ const Login = (props) => {
                 <FcGoogle className="GmailIcon" />
                 Login with Gmail
               </span>
-              <span className="loginFacebook">
+              <span className="loginFacebook" onClick={handleClickInsta}>
                 <FaFacebookF className="facebookIcon" />
-                Login with Gmail
+                Login with Instagram
               </span>
+              {/* <form action="https://debt-management-system.herokuapp.com/auth/login/instagram">
+                <button>Login with IG</button>
+              </form> */}
             </div>
             <LineDivider />
             <div className="loginInputs">
