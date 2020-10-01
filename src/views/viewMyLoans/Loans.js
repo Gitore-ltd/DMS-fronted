@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import moment from 'moment';
 import { connect } from 'react-redux';
 import Table from 'react-bootstrap/Table';
 import './myLoans.css';
@@ -19,7 +20,7 @@ const Loans = (props) => {
             'content-type': 'application/json',
             token: userToken,
           },
-        },
+        }
       );
       const Allrequests = await res.json();
       setRequests(Allrequests.allRequest);
@@ -45,14 +46,23 @@ const Loans = (props) => {
             <tbody>
               {requests
                 ? requests.map((request, id) => (
-                  <tr key={id}>
-                    <td>{request.productTitle}</td>
-                    <td>{request.quantity}</td>
-                    <td>{request.tobePayed}</td>
-                    <td>{request.total}</td>
-                    <td>{request.requestStatus}</td>
-                  </tr>
-                ))
+                    <tr key={id}>
+                      <td>{request.productTitle}</td>
+                      <td>
+                        {request.quantity.toLocaleString(undefined, {
+                          maximumFractionDigits: 2,
+                        })}{' '}
+                      </td>
+                      <td>{moment(request.tobePayed).format('LL')}</td>
+                      <td>
+                        {request.total.toLocaleString(undefined, {
+                          maximumFractionDigits: 2,
+                        })}{' '}
+                        Frw
+                      </td>
+                      <td>{request.requestStatus}</td>
+                    </tr>
+                  ))
                 : null}
             </tbody>
           </Table>

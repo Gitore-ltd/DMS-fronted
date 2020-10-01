@@ -1,15 +1,15 @@
 /* eslint-disable no-unused-vars */
 import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
+import moment from 'moment';
 import qs from 'qs';
 import './seller.css';
 import SellerNavBar from '../../components/SellerNavBar';
 import { selectedRequest } from '../../store/actions/productActions';
 
 const Seller = (props) => {
-
   const [requests, setRequests] = useState([]);
-  
+
   const profile = {
     image: '',
     username: 'n-one',
@@ -26,9 +26,9 @@ const Seller = (props) => {
             'content-type': 'application/json',
             token: userToken,
           },
-        },
-        );
-        const Allrequests = await res.json();
+        }
+      );
+      const Allrequests = await res.json();
       setRequests(Allrequests.allRequest);
     }
     fetchAllRequests();
@@ -41,7 +41,7 @@ const Seller = (props) => {
       pathname: '/requestManipulation',
       search: qs.stringify(request),
     });
-  }
+  };
 
   return (
     <div className="sellerContainer">
@@ -57,27 +57,31 @@ const Seller = (props) => {
               <th>Status</th>
               <th></th>
             </tr>
-          <tbody>
-          {requests
+            <tbody>
+              {requests
                 ? requests.map((request, id) => (
-                  <tr key={id} id="sellerTableRow">
-                    <td>{request.productTitle}</td>
-                    <td>{request.quantity}</td>
-                    <td>{request.tobePayed}</td>
-                    <td>{request.total}</td>
-                    <td>{request.requestStatus}</td>
-                    <td><button
-                     className="sellerOpenReqBtn"
-                     type="submit"
-                    //  onClick={handleClick}
-                    key={request.requestId}
-                    request={request}
-                     onClick={() => handleClick(request)}
-                    >OPEN</button></td>
-                  </tr>
-                ))
+                    <tr key={id} id="sellerTableRow">
+                      <td>{request.productTitle}</td>
+                      <td>{request.quantity}</td>
+                      <td>{moment(request.tobePayed).format('LL')}</td>
+                      <td>{request.total}</td>
+                      <td>{request.requestStatus}</td>
+                      <td>
+                        <button
+                          className="sellerOpenReqBtn"
+                          type="submit"
+                          //  onClick={handleClick}
+                          key={request.requestId}
+                          request={request}
+                          onClick={() => handleClick(request)}
+                        >
+                          OPEN
+                        </button>
+                      </td>
+                    </tr>
+                  ))
                 : null}
-          </tbody>
+            </tbody>
           </table>
         </div>
       </div>
