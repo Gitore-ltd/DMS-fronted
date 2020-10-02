@@ -36,7 +36,6 @@ const Seller = (props) => {
 
   const handleClick = (request) => {
     props.selectedRequest(request);
-    console.log('-------------', request);
     props.history.push({
       pathname: '/requestManipulation',
       search: qs.stringify(request),

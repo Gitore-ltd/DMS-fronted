@@ -81,7 +81,7 @@ const Home = (props) => {
                 type="text"
                 id='homeSearchBtn'
                 className="form-control"
-                placeholder="enter product name"
+                placeholder="search product"
                 name="search"
                 onChange={handleSearch} 
               />
