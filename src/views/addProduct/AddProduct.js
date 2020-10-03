@@ -18,27 +18,27 @@ const AddContact = (props) => {
   const [loading, setLoading] = useState(true);
   const [imageProduct, setImageProduct] = useState('');
   const [description, setDescription] = useState('');
+  const [address, setAddress] = useState('');
 
   const handleImageUpload = async (e) => {
-    
     const { files } = e.target;
     const data = new FormData();
     data.append('file', files[0]);
     data.append('upload_preset', 'miv0xetk');
     setLoading(true);
-    
+
     const res = await fetch(
       'https://api.cloudinary.com/v1_1/kagororacloud/image/upload',
       {
         method: 'POST',
         body: data,
       }
-      );
-      
-      const file = await res.json();
-      setProductImage(file.secure_url);
-      setLoading(false);
-    };
+    );
+
+    const file = await res.json();
+    setProductImage(file.secure_url);
+    setLoading(false);
+  };
   const profile = {
     image: '',
     username: 'n-one',
@@ -54,6 +54,7 @@ const AddContact = (props) => {
       price,
       productImage,
       description,
+      address,
     };
     await props.addProduct(product, props.token);
   };
@@ -142,6 +143,14 @@ const AddContact = (props) => {
                       type="text"
                       class="form-control"
                       value={price * quantity}
+                    />
+                  </div>
+                  <div className="form-group row">
+                    <label className="col-sm-3 col-form-label">Address</label>
+                    <input
+                      type="text"
+                      class="form-control"
+                      onChange={(e) => setAddress(e.target.value)}
                     />
                   </div>
                   <div className="form-group row">

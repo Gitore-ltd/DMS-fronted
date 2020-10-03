@@ -1,22 +1,21 @@
-
 body {
-  background-color: #eee;
+  background-color: white;
 }
 
 .search-box {
-  width: 60%;
+  display: flex;
+  justify-content: center;
   height: 40px;
   margin: 40px auto 40px auto;
   font-size: 12px;
+  outline: none !important;
 }
 
 .search-box input {
-  border: none;
+  border: none !important;
   width: 100%;
   height: 45px;
-  border-bottom: 2px solid #ccc;
   padding: 10px;
-  border-radius: 4px;
   text-align: left;
   padding-left: 2.5rem;
 }
@@ -40,9 +39,10 @@ body {
 }
 
 .product {
-  width: 250px; 
-  height: 250px;
+  width: 280px;
+  height: 350px;
   background-color: white;
+  border: 1px solid #c1c1c1;
   border-radius: 10px;
   margin: 10px;
   box-shadow: 0 2px 3px #ccc;
@@ -50,36 +50,114 @@ body {
   text-align: center;
   padding: 20px;
   cursor: pointer;
-}   
-
-.product img{
-    width: 80%;
-    height: 70%;
-    object-fit: cover;
-    margin-bottom: 10px;
 }
 
-.product h5{
-    margin: 0;
-    padding: 0;
-    font-size: 14px;
+.productImgHolder {
+  /* background-color: red; */
+  height: 60%;
 }
 
-.product p{
-    font-size: 12px;
+.product_info {
+  height: 40%;
+  /* background-color: purple; */
 }
 
-#homeSearchBtn{
+.product img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: cover;
+  margin-bottom: 10px;
+}
+
+.product h5 {
+  margin: 0;
+  padding: 0;
+  font-size: 14px;
+  text-transform: uppercase;
+  color: #000000;
+  margin: 1rem 0;
+  letter-spacing: 1.5px;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
+    Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-weight: 800;
+}
+
+#productDescription {
+  margin: 8px 0;
+  font-size: 12px;
+}
+
+.addressHolder {
+  width: 50%;
+  height: 2rem;
+  float: left;
+  display: flex;
+  align-items: center;
+  justify-content: left;
+  margin-top: 0.5rem;
+}
+
+.addressHolder h8 {
+  font-size: 10px;
+}
+
+.addressHolder i {
+  margin: 0 5px 0 0;
+  font-size: 12px;
+  color: orange;
+}
+
+.priceHolder {
+  width: 50%;
+  height: 2rem;
+  float: right;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 0.5rem;
+}
+
+.priceHolder i {
+  margin: 0 5px 0 0;
+  font-size: 12px;
+  color: orange;
+}
+
+.priceHolder h8 {
+  font-size: 13px;
+  font-weight: bolder;
+}
+
+/* .priceHolder span{
+  font-size: 10px;
+  vertical-align: super;
+  opacity: .75;
+} */
+
+.unitHolder {
+  font-size: 8px;
+  vertical-align: super;
+  opacity: 0.95;
+  font-weight: bold;
+}
+
+#homeSearchBtn {
   font-size: 13px;
   z-index: 0;
 }
 
-#homeSearchIcon{
-  position: absolute; 
-  left: 15px; 
-  top: 14px; 
+#homeSearchIcon {
+  position: absolute;
+  left: 15px;
+  top: 16px;
   font-size: 0.9rem;
-  color: rgb(111, 111, 111); 
+  color: rgb(111, 111, 111);
   z-index: 1;
+  color: orange;
 }
 
+#homeSearchBtn:focus {
+  outline: 0px !important;
+  -webkit-appearance: none;
+  box-shadow: none !important;
+}
