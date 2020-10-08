@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import qs from 'qs';
 import { connect } from 'react-redux';
 import './viewOneProduct.css';
@@ -7,7 +7,7 @@ import NavBar from '../../components/Navbar.js';
 const OpenRequest = (props) => {
   const queryParms = props.history.location.search;
 
-  const [product, setProduct] = useState({
+  const [product] = useState({
     ...qs.parse(queryParms.replace('?', '')),
   });
 
@@ -26,72 +26,74 @@ const OpenRequest = (props) => {
         <div className="makeRequest">
           <div className="makeRequestLeft">
             <div className="makeRequestimageHolder">
-              <img src={product.productImage} />
+              <img src={product.productImage} alt="productImage" />
             </div>
           </div>
           <div className="makeRequestRight">
             <div className="makeRequestRightContent">
-            <form className="RequestLoanForm">
-           <h2 className='SelectedProductHeader'>Product Information</h2>
-            <hr className='SelectedProductHeaderToBodydivider'/>
-            <div className="OpenRequestFormGroup">
-                <label>Title: </label>
-                <input
-                  type="text"
-                  value={product.title}
-                  style={{ marginLeft: '40px', width: '68%' }}
-                />
-              </div>
-              <div className="OpenRequestFormGroup">
-                <label>Available Quantity: </label>
-                <input
-                  type="text"
-                  value={product.availableQuantity}
-                  style={{ width: '70%' }}
-                />
-              </div>
-              <div className="OpenRequestFormGroup">
-                <label>Unit: </label>
-                <input
-                  type="text"
-                  value={product.unit}
-                  style={{ marginLeft: '40px', width: '68%' }}
-                />
-              </div>
-              <div className="OpenRequestFormGroup">
-                <label>Quality: </label>
-                <input
-                  type="text"
-                  value={product.quality}
-                  style={{ marginLeft: '32px', width: '68%' }}
-                />
-              </div>
-              <div className="OpenRequestFormGroup">
-                <label>Price/Unit : </label>
-                <input
-                  type="text"
-                  value={product.price}
-                  style={{ marginLeft: '40px', width: '68%' }}
-                />
-              </div>
-              <div className="OpenRequestFormGroupTextArea">
-                <div className="selectedProductDesription">
-                <div className="OpenRequestFormGroupHeader">Description: </div>
-                <div className="OpenRequestFormGroupContent">
-                  {product.description}
+              <form className="RequestLoanForm">
+                <h2 className="SelectedProductHeader">Product Information</h2>
+                <hr className="SelectedProductHeaderToBodydivider" />
+                <div className="OpenRequestFormGroup">
+                  <label>Title: </label>
+                  <input
+                    type="text"
+                    value={product.title}
+                    style={{ marginLeft: '40px', width: '68%' }}
+                  />
                 </div>
+                <div className="OpenRequestFormGroup">
+                  <label>Available Quantity: </label>
+                  <input
+                    type="text"
+                    value={product.availableQuantity}
+                    style={{ width: '70%' }}
+                  />
                 </div>
-              </div>
-              <div className="OpenRequestFormGroup">
-              <button
-                className="btn_Request"
-                type="submit"
-                onClick={handleClick}
-              >
-                Request Loan
-              </button>
-              </div>
-            </form>
+                <div className="OpenRequestFormGroup">
+                  <label>Unit: </label>
+                  <input
+                    type="text"
+                    value={product.unit}
+                    style={{ marginLeft: '40px', width: '68%' }}
+                  />
+                </div>
+                <div className="OpenRequestFormGroup">
+                  <label>Quality: </label>
+                  <input
+                    type="text"
+                    value={product.quality}
+                    style={{ marginLeft: '32px', width: '68%' }}
+                  />
+                </div>
+                <div className="OpenRequestFormGroup">
+                  <label>Price/Unit : </label>
+                  <input
+                    type="text"
+                    value={product.price}
+                    style={{ marginLeft: '40px', width: '68%' }}
+                  />
+                </div>
+                <div className="OpenRequestFormGroupTextArea">
+                  <div className="selectedProductDesription">
+                    <div className="OpenRequestFormGroupHeader">
+                      Description:{' '}
+                    </div>
+                    <div className="OpenRequestFormGroupContent">
+                      {product.description}
+                    </div>
+                  </div>
+                </div>
+                <div className="OpenRequestFormGroup">
+                  <button
+                    className="btn_Request"
+                    type="submit"
+                    onClick={handleClick}
+                  >
+                    Request Loan
+                  </button>
+                </div>
+              </form>
             </div>
           </div>
         </div>
@@ -103,6 +105,6 @@ const OpenRequest = (props) => {
 // export default OpenRequest;
 
 const mapStateToProps = (state) => ({
-  selectedProduct: state.selectedProduct.selectedProduct
+  selectedProduct: state.selectedProduct.selectedProduct,
 });
 export default connect(mapStateToProps)(OpenRequest);

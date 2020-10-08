@@ -1,11 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import './profilePage.css';
-import moment from 'moment';
 import Navbar from '../../components/Navbar';
 import NavbarSeller from '../../components/SellerNavBar';
 import NavbarAdmin from '../../components/adminNavarBar';
 import Form from 'react-bootstrap/Form';
-import Col from 'react-bootstrap/Col';
 import { toast } from 'react-toastify';
 import { connect } from 'react-redux';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
