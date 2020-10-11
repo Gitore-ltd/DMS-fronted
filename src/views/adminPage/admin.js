@@ -1,9 +1,20 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect } from 'react';
 import moment from 'moment';
 import { toast } from 'react-toastify';
 import Modal from 'react-bootstrap/Modal';
-import { Table, Form } from 'react-bootstrap';
 import './admin.css';
+
+import { makeStyles } from '@material-ui/core/styles';
+import Table from '@material-ui/core/Table';
+import TableBody from '@material-ui/core/TableBody';
+import TableCell from '@material-ui/core/TableCell';
+import TableHead from '@material-ui/core/TableHead';
+import TablePagination from '@material-ui/core/TablePagination';
+import TableRow from '@material-ui/core/TableRow';
+import Paper from '@material-ui/core/Paper';
+import Chip from '@material-ui/core/Chip';
+import CircularProgress from '@material-ui/core/CircularProgress';
+
 import NavAdmin from '../../components/adminNavarBar';
 import NoImg from '../../assets/images/no-image.png';
 
@@ -14,7 +25,7 @@ const Admin = () => {
   const [showModalDelete, setShowModalDelete] = useState(false);
   const [term, setTerm] = useState('');
   const [userInfo, setUserInfo] = useState({});
-  const [roles, setRoles] = useState(['seller', 'customer', 'superAdmin']);
+  const [roles] = useState(['seller', 'customer', 'superAdmin']);
   const [initialRole, setInitialRole] = useState('');
   const [newRoles, setNewRoles] = useState([]);
   const [role, setRole] = useState('');
@@ -22,23 +33,99 @@ const Admin = () => {
   const [isDeleted, setIsDeleted] = useState(false);
   const [token, setToken] = useState('');
   const [userImage, setUserImage] = useState('');
-  const [emptyImage, setEmptyImage] = useState('no image found');
+  const [emptyImage] = useState('no image found');
+
+  let rows = {};
+  const [page, setPage] = React.useState(0);
+  const [searchKey, setSearchKey] = React.useState('');
+  const [rowsPerPage, setRowsPerPage] = React.useState(5);
+  const [search, setSearch] = React.useState(false);
+  const [results, setResults] = React.useState({});
+
+  const handleChangePage = (event, newPage) => {
+    setPage(newPage);
+  };
+  const useStyles = makeStyles((theme) => ({
+    root: {
+      width: '100%',
+      marginTop: theme.spacing(3),
+      overflowX: 'auto',
+      backgroundColor: 'transparent',
+    },
+    table: {
+      minWidth: 650,
+    },
+
+    input: {
+      marginLeft: theme.spacing(1),
+      width: 650 / 2,
+      flex: 1,
+    },
+    iconButton: {
+      padding: 10,
+    },
+    pending: {
+      textTransform: 'uppercase',
+      color: '#ffffff',
+      background: '#FEC400',
+      border: 'none',
+      opacity: '0.79',
+      fontSize: 10,
+      width: 100,
+    },
+    rejected: {
+      textTransform: 'uppercase',
+      color: 'white',
+      background: '#F12B2C',
+      border: 'none',
+      opacity: '0.79',
+    },
+    approved: {
+      textTransform: 'uppercase',
+      color: 'white',
+      background: '#29CC97',
+      border: 'none',
+      opacity: '0.79',
+    },
+    progress: {
+      position: 'absolute',
+      marginRight: 'auto',
+      marginLeft: 'auto',
+      left: 0,
+      right: 0,
+    },
+    search: {
+      position: 'absolute',
+      right: 0,
+      marginRight: theme.spacing(5),
+    },
+  }));
+
+  const classes = useStyles();
+
+  const profile = {
+    image: '',
+    username: 'n-one',
+  };
 
   useEffect(async () => {
-    const userToken = localStorage.getItem('user-token');
-    setToken(userToken);
-    const res = await fetch(
-      `https://debt-management-system.herokuapp.com/api/v1/findAll`,
-      {
-        method: 'GET',
-        headers: {
-          'content-type': 'application/json',
-          token: userToken,
-        },
-      }
-    );
-    const user = await res.json();
-    setUsers(user.findAllUsers);
+    async function AllUsers() {
+      const userToken = localStorage.getItem('user-token');
+      setToken(userToken);
+      const res = await fetch(
+        `https://debt-management-system.herokuapp.com/api/v1/findAll`,
+        {
+          method: 'GET',
+          headers: {
+            'content-type': 'application/json',
+            token: userToken,
+          },
+        }
+      );
+      const user = await res.json();
+      setUsers(user.findAllUsers);
+    }
+    AllUsers();
   }, []);
 
   useEffect(() => {
@@ -188,20 +275,45 @@ const Admin = () => {
     }
   };
 
+  updateUsersTableOnDelete(isDeleted, token);
+
+  const trimString = (s) => {
+    var l = 0,
+      r = s.length - 1;
+    while (l < s.length && s[l] === ' ') l++;
+    while (r > l && s[r] === ' ') r -= 1;
+    return s.substring(l, r + 1);
+  };
+
+  const compareObjects = (o1, o2) => {
+    var k = '';
+    for (k in o1) if (o1[k] !== o2[k]) return false;
+    for (k in o2) if (o1[k] !== o2[k]) return false;
+    return true;
+  };
+
+  const itemExists = (haystack, needle) => {
+    for (var i = 0; i < haystack.length; i++)
+      if (compareObjects(haystack[i], needle)) return true;
+    return false;
+  };
+
+  const handleChangeRowsPerPage = (event) => {
+    setRowsPerPage(parseInt(event.target.value, 10));
+    setPage(0);
+  };
+
   const handleSearch = (e) => {
     e.preventDefault();
     setTerm(e.target.value);
   };
 
-  const searchFor = (keyWord) => (user) =>
-    user.firstName.toLowerCase().includes(keyWord.toLowerCase()) ||
-    user.lastName.toLowerCase().includes(keyWord.toLowerCase()) ||
-    user.email.toLowerCase().includes(keyWord.toLowerCase()) ||
-    user.role.toLowerCase().includes(keyWord.toLowerCase()) ||
-    !keyWord;
-
-
-  updateUsersTableOnDelete(isDeleted, token);
+  // const searchFor = (keyWord) => (user) =>
+  //   user.firstName.toLowerCase().includes(keyWord.toLowerCase()) ||
+  //   user.lastName.toLowerCase().includes(keyWord.toLowerCase()) ||
+  //   user.email.toLowerCase().includes(keyWord.toLowerCase()) ||
+  //   user.role.toLowerCase().includes(keyWord.toLowerCase()) ||
+  //   !keyWord;
 
   return (
     <div className="adminContainer">
@@ -212,37 +324,52 @@ const Admin = () => {
             <input placeholder="enter name or email" onChange={handleSearch} />
             <i className="fa fa-search"></i>
           </div>
-          <div className="tableHeader">
-            <ul>
-              <li className="firstNameRow">FIRSTNAME</li>
-              <li className="lastNameRow">LASTNAME</li>
-              <li className="emailRow">EMAIL</li>
-              <li className="telephoneRow">TELEPHONE</li>
-              <li className="roleRow">ROLE</li>
-            </ul>
-          </div>
 
-          <div className="tableBody">
-            {users
-              ? users.filter(searchFor(term)).map((user, id) => (
-                  <ul
-                    key={id}
-                    className="userTableRows"
-                    onClick={() => {
-                      handleShow();
-                      handleClick(user.email);
-                      setInitialRole(user.role);
-                    }}
-                  >
-                    <li className="firstNameRowData">{user.firstName}</li>
-                    <li className="lastNameRowData">{user.lastName}</li>
-                    <li className="emailRowData">{user.email}</li>
-                    <li className="telephoneRowData">{`(+250) ${user.telephone}`}</li>
-                    <li className="roleRowData">{user.role}</li>
-                  </ul>
-                ))
-              : null}
-          </div>
+          <Paper className={classes.root}>
+            <Table className={classes.table} aria-label="caption table">
+              <TableHead>
+                <TableRow>
+                  <TableCell align="center">FIRSTNAME</TableCell>
+                  <TableCell align="center">LASTNAME</TableCell>
+                  <TableCell align="center">EMAIL</TableCell>
+                  <TableCell align="center">TELEPHONE</TableCell>
+                  <TableCell align="center">ROLE</TableCell>
+                </TableRow>
+              </TableHead>
+
+              <TableBody>
+                {users ? (
+                  users.map((user, id) => (
+                    <TableRow
+                      key={id}
+                      onClick={() => {
+                        handleShow();
+                        handleClick(user.email);
+                        setInitialRole(user.role);
+                      }}
+                      hover
+                      style={{ cursor: 'pointer' }}
+                    >
+                      <TableCell component="th" scope="row" align="center">
+                        {user.firstName}
+                      </TableCell>
+                      <TableCell align="center">{user.lastName}</TableCell>
+                      <TableCell align="center">{user.email}</TableCell>
+                      <TableCell align="center">{`(+250) ${user.telephone}`}</TableCell>
+                      <TableCell align="center">{user.role}</TableCell>
+                    </TableRow>
+                  ))
+                ) : (
+                  <TableRow>
+                    <TableCell colspan="6" align="center">
+                      You have no users
+                    </TableCell>
+                  </TableRow>
+                )}
+              </TableBody>
+            </Table>
+          </Paper>
+
           <Modal id="Modal" show={showModal} onHide={handleClose} centered>
             <Modal.Header className="ModalHeader" closeButton>
               <h1>Users Information</h1>
@@ -329,11 +456,6 @@ const Admin = () => {
                 <form as="select" onChange={handleSelectedRole}>
                   <div className="updateRoleRow">
                     <label>Role</label>
-                    {/* <select>
-                      {roles.map((role) => (
-                        <option>{role}</option>
-                      ))}
-                    </select> */}
                     <select>
                       <option value="" disabled selected>
                         Select your option

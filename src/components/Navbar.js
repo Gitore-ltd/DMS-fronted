@@ -52,8 +52,8 @@ const Navbar = (props) => {
             {token !== null ? (
               <>
                 <div>
-                  <Link to="/home">Home</Link>
-                  <Link to="/loans">Loans</Link>
+                  <Link to="/home" id='navLink'>Home</Link>
+                  <Link to="/loans" >Loans</Link>
                   <Link to="/viewrequest">Reports</Link>
                 </div>
                 <Bell />

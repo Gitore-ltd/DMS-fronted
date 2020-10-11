@@ -1,12 +1,9 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faImage } from '@fortawesome/free-solid-svg-icons';
 import Navbar from '../../components/SellerNavBar.js';
 import './AddProduct.css';
 import NoImg from '../../assets/images/no-image.png';
 import { addProduct } from '../../store/actions/productActions';
-import ReactFileReader from 'react-file-reader';
 
 const AddContact = (props) => {
   const [productImage, setProductImage] = useState('');

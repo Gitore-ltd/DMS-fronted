@@ -17,7 +17,6 @@ const Home = (props) => {
   const [term, setTerm] = useState('');
 
   useEffect(() => {
-    const x = qs.parse(props.location.search.replace('?', ''));
     async function fetchProducts() {
       await props.getProducts(
         'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImthZ29yb3JhbWF4aW1lQGdtYWlsLmNvbSIsImlhdCI6MTU5ODAwNjI5OH0.mgKJFmP3AZm1DDdjUXx29GyA0lrulX9InY5pqFFfHY0'

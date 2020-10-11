@@ -12,7 +12,7 @@
   z-index: 200;
 }
 
-.navbarLeft{
+.navbarLeft {
   float: left;
   width: 40%;
   height: 10vh;
@@ -26,7 +26,7 @@
   margin-left: 2rem;
 }
 
-.navbarRight{
+.navbarRight {
   float: right;
   width: 60%;
   height: 10vh;
@@ -150,10 +150,28 @@
   align-items: center;
   box-shadow: 0px 0px 7px -5px rgb(126, 125, 125);
   padding: 10px;
-} 
+}
 
+/* #navLink {
+  position: relative;
+  color: white;
+  text-decoration: none;
+}
 
+#navLink::before {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: #000;
+  visibility: hidden;
+  transform: scaleX(0);
+  transition: all 0.3s ease-in-out 0s;
+}
 
-
-
-
+#navLink:hover::before {
+  visibility: visible;
+  transform: scaleX(1);
+} */

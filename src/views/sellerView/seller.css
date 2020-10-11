@@ -6,6 +6,7 @@
 .sellerContainer {
   height: 100vh;
   width: 100%;
+  background-color: #fefefe;
 }
 
 .sellerContentContainer {
@@ -216,9 +217,10 @@
 }
 
 #dowload_holder {
-  width: 85%;
-  height: 65%;
-  background-color: #eff3f5;
+  width: 100%;
+  height: 2rem;
+  background-color: #dddddd;
+  /* background-color: red; */
   border-radius: 5%;
   border-top-left-radius: 20px;
   border-top-right-radius: 20px;
